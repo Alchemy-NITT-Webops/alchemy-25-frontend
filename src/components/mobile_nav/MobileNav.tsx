@@ -51,12 +51,12 @@ function MobileNav() {
         animate={isOpen ? "open" : "closed"}
         initial={false}>
             <div
-                className="z-30 fixed top-0 left-0 m-5 flex justify-center items-center bg-blue-500 rounded-full size-10 cursor-pointer "
+                className="z-50 fixed top-0 left-0 m-5 flex justify-center items-center bg-blue-500 rounded-full size-10 cursor-pointer "
                 onClick={() => toggleIsOpen(!isOpen)} >
                 <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />
             </div>
             <motion.div
-                className={`z-10 fixed top-0 left-0  bg-blue-500 transition-all flex flex-col justify-center items-start h-screen w-screen`}
+                className={`z-40 fixed top-0 left-0  bg-blue-500 transition-all flex flex-col justify-center items-start h-screen w-screen`}
                 
                 variants={{
                     open: ({
@@ -90,7 +90,7 @@ function MobileNav() {
                     return (
                         <>
                             <motion.li
-                                className="ml-10 justify-center z-20 cursor-pointer flex items-center mb-5"
+                                className="ml-10 justify-center z-50 cursor-pointer flex items-center mb-5"
                                 key={key}
                                 variants={{
                                     open: {
