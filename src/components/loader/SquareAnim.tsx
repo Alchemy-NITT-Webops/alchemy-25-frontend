@@ -6,12 +6,10 @@ import { motion } from "motion/react"
 function SquareAnim() {
     return (
         <motion.div
-            className='size-24 absolute '
+            className='size-24 absolute bg-blue-500 '
             style={{
                 margin: 0,
                 padding: 0,
-                backgroundColor: "#9900ff",
-                color: "#fafafa",
                 paddingBottom: "100px",
                 overflow: "hidden",
             }}

@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import SquareAnim from "../../components/loader/SquareAnim";
-import ChemPlantAnim from "../../components/loader/ChemPlantAnim";
 import Loader from "../../components/loader/Loader";
 
 
