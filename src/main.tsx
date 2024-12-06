@@ -7,6 +7,7 @@ import {
 
 import './index.css'
 import App from './pages/home/App'
+import TopNavBar from './components/header/Header';
 import MobileNav from './components/mobile_nav/MobileNav';
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <TopNavBar/>
     <MobileNav/>
     <RouterProvider router={router}/>
   </StrictMode>,
