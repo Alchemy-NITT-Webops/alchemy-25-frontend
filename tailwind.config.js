@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'IBMPlexSans': ['IBMPlexSans', 'sans-serif']
-      }
+        'IBMPlexSans': ['IBMPlexSans', 'sans-serif'],
+        'Azora': ['Azora', 'sans-serif']
+      },
     },
   },
   plugins: [],

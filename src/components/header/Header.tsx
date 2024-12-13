@@ -24,14 +24,12 @@ function TopNavBar() {
                 animate={visible ? "visible" : "hidden"}
                 initial={false}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="z-50 fixed top-0 w-full h-24 bg-[#004A20] shadow-sm border grid grid-cols-3"
-                style={{ borderRadius: "0px 0px 5px 5px" }}
+                className="z-50 fixed top-0 w-full h-24 bg-[#03652d] shadow-sm border grid grid-cols-5"
+                style={{ borderRadius: "0px 0px 7px 7px" }}
             >
-                <div className=" justify-center flex items-center h-full w-full"> <img src="/logo.png" className="size-20" /></div>
-                <div className=" justify-center flex items-center h-full w-full">
-                    something
-                </div>
-                <div className="flex  items-center justify-around ">
+                <div className=" justify-center flex col-span-1  items-center h-full"> <img src="/logo.png" className="size-20" /></div>
+                <div className=" justify-center flex col-span-1 items-center h-full"/>
+                <div className="flex items-center col-span-3  justify-center gap-5 ">
                     {arr.map(() => {
                         return (
                             <>
