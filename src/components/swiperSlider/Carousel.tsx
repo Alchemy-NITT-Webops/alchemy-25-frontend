@@ -1,15 +1,13 @@
 
 
-
+//@ts-nocheck
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css/effect-fade';
-
 // Import Swiper styles
 import 'swiper/css';
-
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';

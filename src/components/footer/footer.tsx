@@ -53,7 +53,7 @@ function Footer() {
                 scrollTrigger: {
                     trigger: '.item3',
                     start: 'top center', // when the top of the trigger hits the top of the viewport
-                    markers: true,
+                    // markers: true,
                     end: 'top top',
                     toggleActions: 'play none reverse none', // Reverses on scroll back up
                     scrub: 2
@@ -87,17 +87,17 @@ function Footer() {
                 {['item1', 'item2', 'item3', 'item4'].map((item, index) => (
                     <div
                         key={index}
-                        className={` absolute font-Azora text-6xl lg:text-8xl rounded-[60px] font-extrabold flex text-[#EC9E52] bg-[#03652E] p-3 w-full h-[40vh] flex-col items-start justify-center shadow-lg ${item} ${index == 0 || index == 2 ? 'bg-blue-600' : ''}`}
+                        className={` absolute font-Azora text-5xl lg:text-8xl rounded-[60px] font-extrabold flex text-[#EC9E52] bg-[#03652E] p-3 w-full h-[40vh] flex-col items-start justify-center shadow-lg ${item} ${index == 0 || index == 2 ? 'bg-blue-600' : ''}`}
                     >
                         <span>ALCHEMY</span>
 
-                        <div className="flex items-center w-full justify-between">
+                        <div className="flex items-center w-full gap-2 justify-between">
                             <div>'25</div>
                             <div className="flex items-center justify-around">
                                 {[1, 2, 3, 4, 5].map(() => {
                                     return (
                                         <>
-                                            <div className="mr-5 rounded-full size-20 bg-white"></div>
+                                            <div className="mr-5 transition-all duration-500 hover:shadow-sm hover:-translate-y-4 rounded-full size-7 lg:size-20 bg-white"></div>
                                         </>
                                     )
                                 })}
