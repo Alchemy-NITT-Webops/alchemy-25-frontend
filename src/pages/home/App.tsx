@@ -3,7 +3,8 @@ import AnimatedTextWord from "../../components/AnimatedTextWords";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap/src";
-import Carousel from "../../components/swiperSlider/Carousel";
+import ImageCarousel from "../../components/landingCarousel/PlaylistCarousel";
+import Footer from "../../components/footer/footer";
 function App() {
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -37,7 +38,6 @@ function App() {
             }
         );
     });
-
     return (
         <div>
 
@@ -71,11 +71,11 @@ function App() {
 
             </div>
 
-            <div className="min-h-screen flex flex-col justify-center items-center">
-                <div className="overflow-hidden overflow-x-auto">
-                    <Carousel/>
-                </div>
+            <div className="min-h-screen mt-1 w-full rounded-md overflow-clip flex flex-col justify-center items-center">
+                    {/* <Carousel/> */}
+                    <ImageCarousel/>
             </div>
+            <Footer/>
 
         </div>
     );

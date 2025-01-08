@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion";
 import useWindowDimensions from "../../utils/dimensionsContext";
+import { useNavigate } from "react-router-dom";
 
 //@ts-ignore
 const Path = props => (
@@ -44,83 +45,115 @@ const MenuToggle = ({ toggle }) => (
 function MobileNav() {
     const [isOpen, toggleIsOpen] = useState(false)
     const { height } = useWindowDimensions()
-    const navItems = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    
+
+    const navigate = useNavigate();
+    var [active, setActive] = useState(1);
+
+    useEffect(() => {
+        const url = window.location.pathname;
+        setActive(navItems.find(item => item.url == url)?.id || 1)
+    })
+    const handleClick = (url: string) => {
+        navigate(url)
+        setActive(navItems.find(item => item.url == url)?.id || 1)
+    };
+
+    const navItems = [
+        { id: 1, name: "Home", url: "/" },
+        { id: 2, name: "Events", url: "/events" },
+        { id: 3, name: "Workshops", url: "/workshops" },
+        { id: 4, name: "Guest Lectures", url: "/guest-lectures" },
+        { id: 5, name: "Accommodation", url: "/accommodation" },
+        { id: 6, name: "Contact Us", url: "/contact" }
+    ];
+
+
     return (
-        <motion.div
-        animate={isOpen ? "open" : "closed"}
-        initial={false}>
-            <div
-                className="z-50 fixed top-0 left-0 m-5 flex justify-center items-center bg-blue-500 rounded-full size-10 cursor-pointer "
-                onClick={() => toggleIsOpen(!isOpen)} >
-                <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />
-            </div>
+        <div className="md:hidden w-full fixed z-50 backdrop-blur-sm flex justify-between items-center border-b-[#03652d] border-b-[1.5px]">
             <motion.div
-                className={`z-40 fixed top-0 left-0  bg-blue-500 transition-all flex flex-col justify-center items-start h-screen w-screen`}
-                
-                variants={{
-                    open: ({
-                        clipPath: `circle(${height * 2 + 400}px at 40px 40px)`,
-                        transition: {
-                            type: "spring",
-                            stiffness: 20,
-                            restDelta: 2,
-                            staggerChildren: 0.07, 
-                            delayChildren: 0.2 
+                animate={isOpen ? "open" : "closed"}
+                initial={false}>
+                <div
+                    className="z-[300] md:hidden fixed top-0 left-0 m-5 flex justify-center items-center bg-blue-500 rounded-full size-10 cursor-pointer "
+                    onClick={() => toggleIsOpen(!isOpen)} >
+                    <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />
+                </div>
+                <motion.div
+                    className={`z-50 fixed top-0 left-0  bg-blue-500 transition-all flex flex-col justify-center items-start h-screen w-screen`}
+
+                    variants={{
+                        open: ({
+                            clipPath: `circle(${height * 2 + 400}px at 40px 40px)`,
+                            transition: {
+                                type: "spring",
+                                stiffness: 20,
+                                restDelta: 2,
+                                staggerChildren: 0.07,
+                                delayChildren: 0.2
+                            }
+                        }),
+                        closed: {
+                            clipPath: "circle(25px at 40px 40px)",
+                            transition: {
+                                delay: 0.5,
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 40,
+                                staggerChildren: 0.05,
+                                staggerDirection: -1
+                            }
                         }
-                    }),
-                    closed: {
-                        clipPath: "circle(25px at 40px 40px)",
-                        transition: {
-                            delay: 0.5,
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 40,
-                            staggerChildren: 0.05, 
-                            staggerDirection: -1
-                        }
-                    }
-                }}
-            >
-        
-                {navItems.map((key) => {
+                    }}
+                >
+
+                    {navItems.map((item, key) => {
                         const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF"];
-                      const style = { border: `2px solid ${colors[key]}` };
+                        const style = { border: `2px solid ${colors[key]}` };
 
-                    return (
-                        <>
-                            <motion.li
-                                className="ml-10 justify-center z-50 cursor-pointer flex items-center mb-5"
-                                key={key}
-                                variants={{
-                                    open: {
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            y: { stiffness: 1000, velocity: -100 }
+                        return (
+                            <>
+                                <motion.li
+                                    className="ml-10 justify-center z-50 cursor-pointer flex items-center mb-5"
+                                    key={key}
+                                    variants={{
+                                        open: {
+                                            y: 0,
+                                            opacity: 1,
+                                            transition: {
+                                                y: { stiffness: 1000, velocity: -100 }
+                                            }
+                                        },
+                                        closed: {
+                                            y: 50,
+                                            opacity: 0,
+                                            transition: {
+                                                y: { stiffness: 1000 }
+                                            }
                                         }
-                                    },
-                                    closed: {
-                                        y: 50,
-                                        opacity: 0,
-                                        transition: {
-                                            y: { stiffness: 1000 }
-                                        }
-                                    }
-                                }}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <div className="size-10 rounded-full  flex flex-grow-[40px] mr-5" style={style} />
-                                <div className="rounded-md w-48 h-5 flex  " style={style} />
-                            </motion.li>
-                        </>
-                    )
-                })}
-
-
+                                    }}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div
+                                        className={`rounded-md w-48 h-10 flex items-center justify-center text-white font-semibold ${active == item.id ? "bg-blue-700" : "bg-blue-500"} transition-colors duration-300`}
+                                        style={style}
+                                        onClick={() => {
+                                            toggleIsOpen(!isOpen)
+                                            handleClick(item.url)
+                                        }}
+                                    >
+                                        {item.name}
+                                    </div>
+                                </motion.li>
+                            </>
+                        )
+                    })}
+                </motion.div>
             </motion.div>
-        </motion.div>
+            <div className="z-50 flex-1 justify-center flex items-center">
+                <img src="/logo.png" className="size-20" />
+            </div>
+        </div>
     )
 }
 

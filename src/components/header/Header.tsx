@@ -1,10 +1,23 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 function TopNavBar() {
     const { scrollY } = useScroll()
+    const navigate = useNavigate();
+    var [active, setActive] = useState(1);
+
+    useEffect(() => {
+        const url = window.location.pathname;
+        setActive(navItems.find(item => item.url == url)?.id || 1)
+    })
+    const handleClick = (url: string) => {
+        navigate(url)
+        setActive(navItems.find(item => item.url == url)?.id || 1)
+    };
+
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() || 0;
@@ -13,38 +26,52 @@ function TopNavBar() {
     })
 
     const [visible, setVisible] = useState(true);
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    const navItems = [
+        { id: 1, name: "Home", url: "/" },
+        { id: 2, name: "Events", url: "/events" },
+        { id: 3, name: "Workshops", url: "/workshops" },
+        { id: 4, name: "Guest Lectures", url: "/guest-lectures" },
+        { id: 5, name: "Accommodation", url: "/accommodation" },
+        { id: 6, name: "Contact Us", url: "/contact" }
+    ];
+
     return (
         <>
             <motion.nav
                 variants={{
-                    visible: { y: 0 },
-                    hidden: { y: "-100%" }
+                    visible: { backgroundColor: "#03652d" },
+                    hidden: { backdropFilter: "blur(5px)", backgroundColor: "#03652d99" }
                 }}
                 animate={visible ? "visible" : "hidden"}
                 initial={false}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="z-50 fixed top-0 w-full h-24 bg-[#03652d] shadow-sm border grid grid-cols-5"
+                className=" select-none z-50 fixed top-0 w-full h-24 shadow-sm border md:flex hidden   justify-around"
                 style={{ borderRadius: "0px 0px 7px 7px" }}
             >
-                <div className=" justify-center flex col-span-1  items-center h-full"> <img src="/logo.png" className="size-20" /></div>
-                <div className=" justify-center flex col-span-1 items-center h-full"/>
-                <div className="flex items-center col-span-3  justify-center gap-5 ">
-                    {arr.map(() => {
+                <div className=" left-0 justify-center flex items-center h-full"> <img src="/logo.png" className="size-20" /></div>
+                <nav className="flex items-center flex-[0.55] gap-3 justify-around ">
+                    {navItems.map((item) => {
                         return (
                             <>
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    transition={{ duration: 0.001, ease: 'easeInOut' }}
-                                    className=" transition-all hover:scale-105 rounded-full hover:invert border-red-500 border size-10">
-
-                                </motion.div>
+                                <button
+                                    key={item.name}
+                                    onClick={() => handleClick(item.url)}
+                                    className="min-w-fit relative text-xl text-white transition-all hover:scale-105 size-10"
+                                >
+                                    {item.name}
+                                    <motion.div
+                                        variants={{
+                                            isActive: { width: "100%" },
+                                            isInactive: { width: "0%" }
+                                        }}
+                                        animate={active == item.id ? "isActive" : "isInactive"}
+                                        className="w-10 bg-white rounded-md h-0.5" />
+                                </button>
                             </>
                         )
                     })}
-                </div>
-
+                </nav>
 
             </motion.nav>
 
