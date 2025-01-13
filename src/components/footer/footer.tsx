@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap/src";
-import { Plus, Minus } from 'lucide-react';
+// import { Plus, Minus } from 'lucide-react';
 
 //import facebook, instagram, medium and linkedin icons from lucide-react
 import { Facebook, Instagram, SunMediumIcon, Linkedin } from 'lucide-react';

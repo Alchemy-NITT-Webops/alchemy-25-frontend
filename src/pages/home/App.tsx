@@ -10,7 +10,6 @@ import Events from "../events/Events";
 import GuestLectures from "../guestLectures/GuestLectures";
 import gldata from "../../data/gl.json";
 import Accomodation from "../accomodation/Accomodation";
-import faq from "../../assets/image.png";
 import FAQAccordion from "../../components/accordion/Accordion";
 import Workshops from "../workshops/Workshops";
 

@@ -21,7 +21,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
     const [activeId, setActiveId] = useState(1);
     const [isAnimating, setIsAnimating] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const autoPlayRef = useRef<ReturnType<typeof setTimeout>>();
+    // const autoPlayRef = useRef<ReturnType<typeof setTimeout>>();
 
     // useEffect(() => {
     //     startAutoPlay();
@@ -38,11 +38,11 @@ const EventCarousel = ({ eventsData }: EventsData) => {
     //     }, 5000);
     // };
 
-    const stopAutoPlay = () => {
-        if (autoPlayRef.current) {
-            clearInterval(autoPlayRef.current);
-        }
-    };
+    // const stopAutoPlay = () => {
+    //     if (autoPlayRef.current) {
+    //         clearInterval(autoPlayRef.current);
+    //     }
+    // };
 
     const scrollToCard = (id: number, next: boolean) => {
         if (isAnimating) return;
