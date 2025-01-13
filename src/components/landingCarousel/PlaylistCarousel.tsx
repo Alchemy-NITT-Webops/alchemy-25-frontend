@@ -1,88 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-interface Song {
-    id: number;
-    image: string;
-    title: string;
-    artist: string;
-    duration: string;
-}
-
-const songs: Song[] = [
-    {
-        id: 1,
-        image: 'https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80',
-        title: 'Bunker',
-        artist: 'Balthazar',
-        duration: '4:05'
-    },
-    {
-        id: 2,
-        image: 'https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80',
-        title: 'Words Remain',
-        artist: 'Moderator',
-        duration: '4:05'
-    },
-    {
-        id: 3,
-        image: 'https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Falling Out',
-        artist: 'Otzeki',
-        duration: '4:05'
-    },
-    {
-        id: 4,
-        image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Dreaming',
-        artist: 'Luna',
-        duration: '3:45'
-    },
-    {
-        id: 5,
-        image: 'https://images.unsplash.com/photo-1519138130-85a949fdcb4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Sunlight',
-        artist: 'The Waves',
-        duration: '4:20'
-    },
-    {
-        id: 6,
-        image: 'https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Midnight',
-        artist: 'Starlight',
-        duration: '3:55'
-    },
-    {
-        id: 7,
-        image: 'https://images.unsplash.com/photo-1535992165812-68d1861aa71e?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Ocean',
-        artist: 'Deep Blue',
-        duration: '4:15'
-    },
-    {
-        id: 8,
-        image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Forest',
-        artist: 'Nature',
-        duration: '4:30'
-    },
-    {
-        id: 9,
-        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Mountain',
-        artist: 'Heights',
-        duration: '4:10'
-    },
-    {
-        id: 10,
-        image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-        title: 'Desert',
-        artist: 'Sands',
-        duration: '4:25'
-    }
-];
-
-
-
+import images from "../../data/imageCarousel.json";
 
 const ImageCarousel = () => {
     const [selectedItem, setSelectedItem] = useState(1);
@@ -95,45 +13,53 @@ const ImageCarousel = () => {
     const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const carouselRef = useRef<HTMLDivElement>(null);
 
-    const getVisibleSongs = () => {
+    const getVisibleimages = () => {
         const currentIndex = selectedItem - 1;
-        const totalSongs = songs.length;
-        const prevIndex = (currentIndex - 1 + totalSongs) % totalSongs;
-        const nextIndex = (currentIndex + 1) % totalSongs;
-        return [songs[prevIndex], songs[currentIndex], songs[nextIndex]];
+        const totalimages = images.imageCarouselData.length;
+        const prevIndex = (currentIndex - 1 + totalimages) % totalimages;
+        const nextIndex = (currentIndex + 1) % totalimages;
+        return [images.imageCarouselData[prevIndex], images.imageCarouselData[currentIndex], images.imageCarouselData[nextIndex]];
     };
 
-    const getCardStyle = (songId: number) => {
-        const visibleSongs = getVisibleSongs();
-        const song = songs.find(s => s.id === songId);
+    const getCardStyle = (imageId: number) => {
+        const visibleimages = getVisibleimages();
+        const image = images.imageCarouselData.find(s => s.id === imageId);
 
-        if (!song || !visibleSongs.includes(song)) {
+        if (!image || !visibleimages.includes(image)) {
             return 'hidden';
         }
 
-        if (songId === selectedItem) {
+        if (imageId === selectedItem) {
             return 'transform scale-100 opacity-100 z-10 transition-all duration-700 ease-in-out';
         }
 
-        const currentIndex = songs.findIndex(s => s.id === selectedItem);
-        const songIndex = songs.findIndex(s => s.id === songId);
+        const currentIndex = images.imageCarouselData.findIndex(s => s.id === selectedItem);
+        const imageIndex = images.imageCarouselData.findIndex(s => s.id === imageId);
 
-        if ((currentIndex === 0 && songIndex === songs.length - 1) ||
-            (songIndex === currentIndex - 1)) {
+        if ((currentIndex === 0 && imageIndex === images.imageCarouselData.length - 1) ||
+            (imageIndex === currentIndex - 1)) {
             return 'transform -translate-x-1/3 scale-[85%] opacity-40 z-0 transition-all duration-700 ease-in-out';
         }
 
         return 'transform translate-x-1/3 scale-[85%] opacity-40 z-0 transition-all duration-700 ease-in-out';
     };
 
+    const [isAnimating, setIsAnimating] = useState(false);
+
     const handleNext = () => {
-        setSelectedItem(current => current === songs.length ? 1 : current + 1);
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setSelectedItem(current => current === images.imageCarouselData.length ? 1 : current + 1);
         setIsBlueTheme(current => !current);
+        setTimeout(() => setIsAnimating(false), 700); // Match the duration of the transition
     };
 
     const handlePrev = () => {
-        setSelectedItem(current => current === 1 ? songs.length : current - 1);
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setSelectedItem(current => current === 1 ? images.imageCarouselData.length : current - 1);
         setIsBlueTheme(current => !current);
+        setTimeout(() => setIsAnimating(false), 700); // Match the duration of the transition
     };
 
     // Auto-play functionality
@@ -201,7 +127,7 @@ const ImageCarousel = () => {
     };
 
     return (
-        <div className={`min-h-screen w-full flex items-center justify-center p-8 transition-colors duration-1000 ${isBlueTheme ? 'bg-[#03652E]' : 'bg-[#EC9E52]'}`}>
+        <div className={`min-h-screen overflow-hidden w-full flex items-center justify-center p-8 transition-colors duration-1000 ${isBlueTheme ? 'bg-[#03652E]' : 'bg-[#EC9E52]'}`}>
             <div
                 className="w-[80vw] h-[80vh] flex flex-col items-center justify-center"
                 ref={carouselRef}
@@ -242,14 +168,14 @@ const ImageCarousel = () => {
                     </button>
 
                     {/* Cards */}
-                    {songs.map(song => (
+                    {images.imageCarouselData.map(image => (
                         <div
-                            key={song.id}
-                            className={`absolute w-3/5 h-full left-0 right-0 mx-auto ${getCardStyle(song.id)}`}
+                            key={image.id}
+                            className={`absolute w-[80vw] h-full left-0 right-0 mx-auto md:w-[80vw] ${getCardStyle(image.id)}`}
                         >
                             <img
-                                src={song.image}
-                                alt={song.title}
+                                src={image.image}
+                                alt={image.title}
                                 className="w-full h-full rounded-lg object-cover shadow-lg"
                                 draggable="false"
                             />

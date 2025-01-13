@@ -1,0 +1,88 @@
+{
+    "gldata": [
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. John Doe",
+            "designation": "Professor",
+            "address": "University of California"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. Jane Smith",
+            "designation": "Associate Professor",
+            "address": "Massachusetts Institute of Technology"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. Emily Johnson",
+            "designation": "Senior Lecturer",
+            "address": "Stanford University"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. Michael Brown",
+            "designation": "Research Scientist",
+            "address": "Harvard University"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. Sarah Davis",
+            "designation": "Assistant Professor",
+            "address": "Princeton University"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. William Wilson",
+            "designation": "Lecturer",
+            "address": "Yale University"
+        },
+        {
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "name": "Dr. Linda Martinez",
+            "designation": "Professor",
+            "address": "Columbia University"
+        }
+    ]
+}

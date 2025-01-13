@@ -1,0 +1,63 @@
+{ "events": [
+        {
+            "id": 1,
+            "title": "Dota 2",
+            "description": "Dota 2 is a multiplayer online battle arena by Valve. The event is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg",
+            "dateTime": "2023-11-01T18:00:00Z",
+            "location": "Seattle, WA",
+            "registerLink": "https://example.com/register/dota2",
+            "ruleBookLink": "https://example.com/rules/dota2"
+        },
+        {
+            "id": 2,
+            "title": "The Witcher 3",
+            "description": "The Witcher 3 is a multiplayer online battle arena by Valve. The event is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg",
+            "dateTime": "2023-11-02T18:00:00Z",
+            "location": "Warsaw, Poland",
+            "registerLink": "https://example.com/register/witcher3",
+            "ruleBookLink": "https://example.com/rules/witcher3"
+        },
+        {
+            "id": 3,
+            "title": "RDR 2",
+            "description": "RDR 2 is a multiplayer online battle arena by Valve. The event is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
+            "dateTime": "2023-11-03T18:00:00Z",
+            "location": "New York, NY",
+            "registerLink": "https://example.com/register/rdr2",
+            "ruleBookLink": "https://example.com/rules/rdr2"
+        },
+        {
+            "id": 4,
+            "title": "PUBG Mobile",
+            "description": "PUBG 2 is a multiplayer online battle arena by Valve. The event is a sequel to Defense of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+            "dateTime": "2023-11-04T18:00:00Z",
+            "location": "Seoul, South Korea",
+            "registerLink": "https://example.com/register/pubg",
+            "ruleBookLink": "https://example.com/rules/pubg"
+        },
+        {
+            "id": 5,
+            "title": "Fortnite",
+            "description": "Battle royale where 100 players fight to be the last person standing. which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg",
+            "dateTime": "2023-11-05T18:00:00Z",
+            "location": "Los Angeles, CA",
+            "registerLink": "https://example.com/register/fortnite",
+            "ruleBookLink": "https://example.com/rules/fortnite"
+        },
+        {
+            "id": 6,
+            "title": "Far Cry 5",
+            "description": "Far Cry 5 is a 2018 first-person shooter event developed by Ubisoft. which was a community-created mod for Blizzard Entertainment's Warcraft III.",
+            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg",
+            "dateTime": "2023-11-06T18:00:00Z",
+            "location": "Montreal, Canada",
+            "registerLink": "https://example.com/register/farcry5",
+            "ruleBookLink": "https://example.com/rules/farcry5"
+        }
+    ]
+}

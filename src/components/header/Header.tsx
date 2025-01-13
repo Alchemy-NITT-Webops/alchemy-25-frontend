@@ -46,11 +46,11 @@ function TopNavBar() {
                 animate={visible ? "visible" : "hidden"}
                 initial={false}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className=" select-none z-50 fixed top-0 w-full h-24 shadow-sm border md:flex hidden   justify-around"
+                className=" select-none z-50 fixed top-0 w-full h-24 shadow-sm border justify-between md:flex hidden"
                 style={{ borderRadius: "0px 0px 7px 7px" }}
             >
-                <div className=" left-0 justify-center flex items-center h-full"> <img src="/logo.png" className="size-20" /></div>
-                <nav className="flex items-center flex-[0.55] gap-3 justify-around ">
+                <div className=" left-0 justify-center flex ml-5 items-center h-full"> <img src="/logo.png" className="size-20" /></div>
+                <nav className="flex items-center flex-[0.7] right-0 mr-24 gap-3 justify-around ">
                     {navItems.map((item) => {
                         return (
                             <>
@@ -65,8 +65,9 @@ function TopNavBar() {
                                             isActive: { width: "100%" },
                                             isInactive: { width: "0%" }
                                         }}
+                                        initial={false}
                                         animate={active == item.id ? "isActive" : "isInactive"}
-                                        className="w-10 bg-white rounded-md h-0.5" />
+                                        className=" bg-white rounded-md h-0.5" />
                                 </button>
                             </>
                         )

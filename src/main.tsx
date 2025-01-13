@@ -16,7 +16,6 @@ import Events from './pages/events/Events';
 import Workshops from './pages/workshops/Workshops';
 import GuestLectures from './pages/guestLectures/GuestLectures';
 import Accomodation from './pages/accomodation/Accomodation';
-import { Contact } from 'lucide-react';
 import ContactUs from './pages/contactus/ContactUs';
 
 createRoot(document.getElementById('root')!).render(

@@ -5,16 +5,74 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap/src";
 import ImageCarousel from "../../components/landingCarousel/PlaylistCarousel";
 import Footer from "../../components/footer/footer";
+import aboutUsData from "../../data/aboutsUsData.json"
+import Events from "../events/Events";
+import GuestLectures from "../guestLectures/GuestLectures";
+import gldata from "../../data/gl.json";
+import Accomodation from "../accomodation/Accomodation";
+import faq from "../../assets/image.png";
+import FAQAccordion from "../../components/accordion/Accordion";
+import Workshops from "../workshops/Workshops";
+
 function App() {
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
-    
+
         gsap.fromTo(
-            '.about',
-            { x: -100, opacity:0 },
+            '.events',
+            { x: -100, opacity: 0 },
             {
                 x: 0,
-                opacity:1,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: '.events',
+                    start: 'top 80%', // Start the animation when .event is in the viewport
+                    end: 'bottom 80%', // Define the end of the animation trigger zone
+                    toggleActions: 'play none none none', // Play the animation when it enters the viewport
+                },
+            }
+        );
+
+        gsap.fromTo(
+            '.aboutus',
+            { x: -100, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: '.aboutus',
+                    start: 'top 80%', // Start the animation when .event is in the viewport
+                    end: 'bottom 80%', // Define the end of the animation trigger zone
+                    toggleActions: 'play none none none', // Play the animation when it enters the viewport
+                },
+            }
+        );
+
+
+        gsap.fromTo(
+            '.contactus',
+            { x: -100, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: '.contactus',
+                    start: 'top 80%', // Start the animation when .event is in the viewport
+                    end: 'bottom 80%', // Define the end of the animation trigger zone
+                    toggleActions: 'play none none none', // Play the animation when it enters the viewport
+                },
+            }
+        );
+
+
+
+
+        gsap.fromTo(
+            '.about',
+            { x: -100, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
                 scrollTrigger: {
                     trigger: '.about',
                     start: 'top 80%', // Start the animation when .about is in the viewport
@@ -25,10 +83,10 @@ function App() {
         );
         gsap.fromTo(
             '.aboutcontent',
-            { x: 100, opacity:0 },
+            { x: 100, opacity: 0 },
             {
                 x: 0,
-                opacity:1,
+                opacity: 1,
                 scrollTrigger: {
                     trigger: '.about',
                     start: 'top 35%', // Start the animation when .about is in the viewport
@@ -37,7 +95,46 @@ function App() {
                 },
             }
         );
+
+
+        gsap.fromTo(
+            '.gl',
+            { x: -100, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: '.gl',
+                    start: 'top 80%', // Start the animation when .about is in the viewport
+                    end: 'bottom 80%', // Define the end of the animation trigger zone
+                    toggleActions: 'play none none none', // Play the animation when it enters the viewport
+
+                },
+            }
+        );
+
+        gldata.gldata.forEach((_, i) => {
+            var l_or_r = i % 2 == 0 ? -100 : 100;
+            var ilorir = i % 2 == 0 ? 20 : -20;
+            gsap.fromTo(
+                `.gl${i + 1}`,
+                { x: l_or_r, opacity: 0 },
+                {
+                    x: ilorir,
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: `.gl${i + 1}`,
+                        scrub: 1,
+                        start: 'top bottom', // Start the animation when .about is in the viewport
+                        end: 'bottom bottom', // Define the end of the animation trigger zone
+                        toggleActions: 'play none reverse none', // Play the animation when it enters the viewport
+                    },
+                }
+            );
+        })
+
     });
+
     return (
         <div>
 
@@ -62,20 +159,22 @@ function App() {
                             <AnimatedTextCharacter text={"US"} />
                         </div>
                     </div>
-                    <div className=" aboutcontent w-full bg-white h-[2px] ml-4 sm:ml-10 mr-5 rounded-sm shadow-sm"/>
+                    <div className=" aboutcontent w-full bg-white h-[2px] ml-4 sm:ml-10 mr-5 rounded-sm shadow-sm" />
                 </div>
 
                 <div className="aboutcontent font-sans text-lg overflow-hidden text-white p-5 sm:p-10 flex items-start text-whi justify-start h-full w-full">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quibusdam consequatur id officiis ea perferendis eveniet qui hic praesentium, ab, dignissimos quod cum dolorem officia neque omnis? Dicta fugit minima dolorem asperiores, suscipit soluta aut provident excepturi recusandae, voluptatibus, quis nam culpa officiis corrupti. Iste quod similique suscipit asperiores error quas expedita odit in ad, assumenda perferendis fugiat nesciunt qui optio commodi magni deserunt recusandae maiores? Eaque facilis officia quibusdam suscipit totam vero, voluptatem quaerat ex dolorum omnis consequuntur iure, nobis atque vel adipisci recusandae nostrum quo corporis nemo aspernatur error quidem? Officia sed aliquam repudiandae sequi ut fugit iusto hic beatae sit, quas incidunt rem, reiciendis, est iste earum. Praesentium, totam? Temporibus molestiae consequatur rerum veniam nam, aliquam dignissimos commodi maiores alias nihil, aperiam iusto facilis accusamus voluptatibus quis reiciendis! Amet enim officiis ad dolorem omnis consequatur laboriosam neque aperiam quo, sequi voluptate eos nesciunt eius, accusantium corrupti vitae sapiente odio nemo expedita velit quasi maxime suscipit. Enim aliquam corrupti ipsam adipisci deleniti, corporis aperiam dignissimos obcaecati incidunt, et velit, temporibus assumenda natus nobis libero excepturi error quidem esse rerum amet exercitationem. Mollitia similique esse quia? Repellendus illo neque ipsa doloremque temporibus repudiandae unde porro non. Mollitia ipsum magni odit qui expedita eum iure? Possimus, aperiam dolore aliquam et, sit mollitia laborum iusto officiis unde itaque, nam voluptas sunt similique consequatur dicta. Quibusdam ducimus natus consequatur, ipsa veniam perferendis ab adipisci voluptatum nobis alias dolorum temporibus aperiam eligendi illo soluta, laborum quas perspiciatis vero? Eos esse veniam eaque suscipit dolor sunt, nihil expedita quisquam, veritatis provident harum, deleniti assumenda itaque. Quisquam reprehenderit, velit obcaecati voluptas cupiditate impedit vitae praesentium? Temporibus, quos blanditiis. Perspiciatis modi, alias fugiat, voluptatem nam in illo atque quisquam at accusantium aliquam exercitationem ratione suscipit cum eligendi, sequi voluptatum asperiores harum possimus sit. Architecto odit deleniti veniam obcaecati rem, asperiores aut, quasi saepe ex magni minus dignissimos, voluptatibus fugit corporis. Sint voluptatum facere expedita eligendi perspiciatis repudiandae dolor, voluptate nam reiciendis odit dolores nisi quos. Eaque doloremque iure ducimus voluptatum enim porro esse maiores ex, nisi qui incidunt, aliquid nobis adipisci eum nam laborum repudiandae sunt corrupti beatae. Assumenda porro culpa rerum reiciendis, accusantium necessitatibus suscipit dolor voluptatibus nihil exercitationem quisquam nemo quibusdam molestias fugit expedita ea ducimus velit voluptatum illo ab error unde cupiditate? Nulla quae, necessitatibus veritatis aliquid voluptas ratione facere deserunt laborum ipsam tempora reiciendis voluptatem laudantium maiores ut saepe, fugiat amet debitis deleniti dolores temporibus hic officiis voluptatibus aut. Totam fugiat ducimus, et beatae, suscipit nam minus quasi temporibus vel praesentium sint exercitationem consectetur eos libero voluptatibus autem! Sunt totam eum delectus quasi quo beatae expedita exercitationem, dignissimos reprehenderit ratione aut rerum temporibus sit aspernatur pariatur, modi, numquam placeat vitae. Delectus aut harum iusto iure unde porro rem minima reiciendis tempore earum cumque facere fugit excepturi assumenda placeat, tenetur similique eveniet molestiae maiores quae impedit modi doloribus? Necessitatibus nemo odio veniam quos quaerat veritatis non et pariatur minus optio libero ullam, rerum debitis in tenetur excepturi, consequuntur unde at dolor commodi enim.
+                    {aboutUsData.aboutUsData}
                 </div>
 
             </div>
 
-            <div className="min-h-screen mt-1 w-full rounded-md overflow-clip flex flex-col justify-center items-center">
-                    {/* <Carousel/> */}
-                    <ImageCarousel/>
-            </div>
-            <Footer/>
+            <ImageCarousel/>
+            <Events />
+            <GuestLectures />
+            <Workshops/>
+            <Accomodation />
+            <FAQAccordion/>
+            <Footer />
 
         </div>
     );

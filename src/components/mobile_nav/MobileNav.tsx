@@ -74,12 +74,12 @@ function MobileNav() {
                 animate={isOpen ? "open" : "closed"}
                 initial={false}>
                 <div
-                    className="z-[300] md:hidden fixed top-0 left-0 m-5 flex justify-center items-center bg-blue-500 rounded-full size-10 cursor-pointer "
+                    className="z-[300] md:hidden fixed top-0 left-0 m-5 flex justify-center items-center bg-[#03652d] rounded-full size-10 cursor-pointer "
                     onClick={() => toggleIsOpen(!isOpen)} >
                     <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />
                 </div>
                 <motion.div
-                    className={`z-50 fixed top-0 left-0  bg-blue-500 transition-all flex flex-col justify-center items-start h-screen w-screen`}
+                    className={`z-50 fixed top-0 left-0  bg-[#03652d] transition-all flex flex-col justify-center border-2 items-start h-screen w-screen`}
 
                     variants={{
                         open: ({
@@ -105,15 +105,14 @@ function MobileNav() {
                         }
                     }}
                 >
+                    <div className="h-[80vh]"></div>
 
                     {navItems.map((item, key) => {
-                        const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF", "#4400FF"];
-                        const style = { border: `2px solid ${colors[key]}` };
 
                         return (
                             <>
                                 <motion.li
-                                    className="ml-10 justify-center z-50 cursor-pointer flex items-center mb-5"
+                                    className="w-full justify-center h-full z-50 flex items-center"
                                     key={key}
                                     variants={{
                                         open: {
@@ -135,8 +134,7 @@ function MobileNav() {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <div
-                                        className={`rounded-md w-48 h-10 flex items-center justify-center text-white font-semibold ${active == item.id ? "bg-blue-700" : "bg-blue-500"} transition-colors duration-300`}
-                                        style={style}
+                                        className={`rounded-md w-full h-full flex items-center justify-center text-white font-semibold ${active == item.id ? "bg-blue-700" : "bg-blue-500"} transition-colors duration-300`}
                                         onClick={() => {
                                             toggleIsOpen(!isOpen)
                                             handleClick(item.url)
@@ -150,7 +148,7 @@ function MobileNav() {
                     })}
                 </motion.div>
             </motion.div>
-            <div className="z-50 flex-1 justify-center flex items-center">
+            <div className="z-50 flex-1 mt-2 justify-center flex items-center">
                 <img src="/logo.png" className="size-20" />
             </div>
         </div>
