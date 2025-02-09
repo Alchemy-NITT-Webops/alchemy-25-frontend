@@ -12,6 +12,8 @@ import gldata from "../../data/gl.json";
 import Accomodation from "../accomodation/Accomodation";
 import FAQAccordion from "../../components/accordion/Accordion";
 import Workshops from "../workshops/Workshops";
+import { HeroParallax } from "../../components/landingComponent/LandingComponent";
+import { title } from "motion/react-client";
 
 function App() {
     useGSAP(() => {
@@ -134,15 +136,122 @@ function App() {
 
     });
 
+    //products data:
+    // title
+    // link
+    // thubnail
+    const products = [
+        {
+            title: "Product 1",
+            link: "https://example.com/product1",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 1",
+            link: "https://example.com/product1",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 2",
+            link: "https://example.com/product2",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+        {
+            title: "Product 3",
+            link: "https://example.com/product3",
+            thumbnail: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg"
+        },
+    ];
     return (
         <div>
 
-            <div id="landing" className="h-screen w-full">
+            <div id="landing" className="min-h-screen w-full">
 
-                <div className=" flex w-full bg-transparent backdrop-blur-sm h-full justify-center flex-col gap-4 items-center overflow-hidden font-IBMPlexSans">
+                <HeroParallax products={products}/>
+                {/* <div className=" flex w-full bg-transparent backdrop-blur-sm h-full justify-center flex-col gap-4 items-center overflow-hidden font-IBMPlexSans">
                     <p className="text-5xl md:text-7xl"><AnimatedTextCharacter text={"ALCHEMY '25"} /></p>
                     <p className="md:text-2xl"><AnimatedTextWord text={'Automation of Chemical Engineering'} /></p>
-                </div>
+                </div> */}
 
 
             </div>

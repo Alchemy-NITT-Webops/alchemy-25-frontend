@@ -22,7 +22,6 @@ const EventCarousel = ({ eventsData }: EventsData) => {
     const [isAnimating, setIsAnimating] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     // const autoPlayRef = useRef<ReturnType<typeof setTimeout>>();
-
     // useEffect(() => {
     //     startAutoPlay();
     //     // return () => stopAutoPlay();
@@ -44,16 +43,14 @@ const EventCarousel = ({ eventsData }: EventsData) => {
     //     }
     // };
 
-    const scrollToCard = (id: number, next: boolean) => {
+    const scrollToCard = (id: number) => {
         if (isAnimating) return;
 
         setIsAnimating(true);
         const card = document.querySelector(`[data-id="${id}"]`);
 
         if (card && containerRef.current) {
-            const scrollLeft = next ?
-                (card as HTMLElement).offsetLeft - card.clientWidth * 2 :
-                (card as HTMLElement).offsetLeft - card.clientWidth / 2;
+            const scrollLeft = (card as HTMLElement).offsetLeft - card.clientWidth * 2;
 
             containerRef.current.scrollTo({
                 left: scrollLeft,
@@ -73,25 +70,24 @@ const EventCarousel = ({ eventsData }: EventsData) => {
         if (isAnimating) return;
         const newId = activeId === 1 ? eventsData.length : activeId - 1;
         setActiveId(newId);
-        scrollToCard(newId, false);
+        scrollToCard(newId);
     };
 
     const handleNext = () => {
         if (isAnimating) return;
         const newId = activeId === eventsData.length ? 1 : activeId + 1;
         setActiveId(newId);
-        scrollToCard(newId, true);
+        scrollToCard(newId);
     };
 
     const handleCardClick = (id: number) => {
         if (isAnimating || id === activeId) return;
-        const next = id > activeId;
         setActiveId(id);
-        scrollToCard(id, next);
+        scrollToCard(id);
     };
 
     return (
-        <section className="relative max-w-screen select-none overflow-hidden  ">
+        <section className="relative max-w-screen select-none overflow-hidden ">
             <div className="relative">
                 <button
                     onClick={handlePrev}
@@ -113,7 +109,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
 
                 <div
                     ref={containerRef}
-                    className="flex gap-4 overflow-x-auto px-5 no-scrollbar mt-14 scroll-smooth"
+                    className="flex gap-4 overflow-x-hidden px-5 no-scrollbar mt-14 scroll-smooth"
                 >
                     {eventsData.map((event) => (
                         <div
@@ -133,12 +129,11 @@ const EventCarousel = ({ eventsData }: EventsData) => {
                             <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black/50 to-transparent pointer-events-none z-10" />
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black" />
                             <div
-                                className={`absolute inset-x-0 bottom-0 pl-7 pb-7 pr-7 text-white transition-transform duration-500 ease-in-out ${activeId === event.id ? 'translate-y-0' : 'translate-y-[calc(100%-54px)]'
-                                    }`}
+                                className={`absolute inset-x-0 bottom-0 pl-7 pb-7 pr-7 text-white transition-transform duration-500 ease-in-out ${activeId === event.id ? 'translate-y-0' : 'translate-y-full'}`}
                             >
-                                <h3 className="text-2xl font-semibold mb-2">{event.title}</h3>
+                                <h3 className="text-2xl font-semibold mb-2 p-4">{event.title}</h3>
                                 <p
-                                    className={`transition-all duration-500 delay-200 ${activeId === event.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                                    className={`transition-all duration-500 delay-200 ${activeId === event.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full'
                                         }`}
                                 >
                                     <p className="text-sm">date: {event.dateTime}</p>

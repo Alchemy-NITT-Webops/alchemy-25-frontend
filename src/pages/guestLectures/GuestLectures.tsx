@@ -1,6 +1,7 @@
 import React from 'react';
 import bg_circle from '../../assets/gl_bg_circle.png';
 import gldata from '../../data/gl.json';
+import glimg from "../../assets/logo.png"
 
 const GuestLectures: React.FC = () => {
 
@@ -30,8 +31,8 @@ const GuestLectures: React.FC = () => {
                         if (i === 0) {
                             return (
                                 <>
-                                    <div className={`col-span-5 row-span-3 translate-x-8 flex flex-col m-5 p-5 gl${i + 1}`}>
-                                        <img src={gl.image} className="rounded-xl scale-150 md:scale-100"></img>
+                                    <div className={`rounded-lg bg-blue-600 border-2 backdrop-blur-md border-orange-400 col-span-5 row-span-3 flex flex-col m-5 p-5 gl${i + 1}`}>
+                                        <img src={glimg} className="rounded-xl size-fit"></img>
 
                                         <div className="w-full text-lg md:text-2xl font-bold mt-5">{gl.name}</div>
                                         <div className="w-full mt-4 text-[#EC9E52]">{gl.designation}</div>
@@ -46,12 +47,12 @@ const GuestLectures: React.FC = () => {
                         return (
                             <>
                                 {i % 2 == 0 ? <div className="col-span-6" /> : null}
-                                {i % 2 == 1 && i > 1 ? <div className="" /> : null}
+                                {i % 2 == 1 && i > 1 ? <div/> : null}
                                 {i % 2 == 1 && i > 1 ? <div className="col-span-6" /> : null}
                                 {i % 2 == 1 && i > 2 ? <div /> : null}
 
-                                <div className={`col-span-5 row-span-3 ${i%2!=0? "-translate-x-8": "translate-x-8"} flex flex-col m-5 p-5 gl${i + 1}`}>
-                                    <img src={gl.image} className="rounded-xl bg-cover scale-[160%] md:scale-100"></img>
+                                <div className={`rounded-lg ${i%2==0? "bg-blue-600":"bg-green-600"} border-2 border-orange-400 col-span-5 row-span-3 flex flex-col m-5 p-5 gl${i + 1} h-fit`}>
+                                    <img src={glimg} className="rounded-xl size-fit"></img>
 
                                     <div className="w-full text-lg md:text-2xl font-bold mt-5">{gl.name}</div>
                                     <div className="w-full mt-4 text-[#EC9E52]">{gl.designation}</div>
