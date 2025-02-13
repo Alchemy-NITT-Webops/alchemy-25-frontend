@@ -23,17 +23,17 @@
 
 @font-face {
   font-family: 'IBMPlexSans';
-  src: url('./assets//fonts/IBMPlexSans-Bold.ttf') format('truetype');
+  src: url('/assets/fonts/IBMPlexSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Lato';
-  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Lato-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Azora';
-  src: url('./assets//fonts/Azora-FreeDemo.otf') format('truetype');
+  src: url('/assets//fonts/Azora-FreeDemo.otf') format('truetype');
 }
 
 .path-animation {
