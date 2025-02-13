@@ -1,116 +1,119 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import bg_circle from '../../assets/gl_bg_circle.png';
 import gldata from '../../data/gl.json';
-import glimg from "../../assets/logo.png";
 
 const GuestLectures = () => {
-  return (
-    <div
-      style={{
-        backgroundImage: `url(${bg_circle})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '33%',
-        backgroundPositionX: 'center',
-        backgroundAttachment: 'fixed',
-        backgroundPositionY: 'center',
-      }}
-      className="w-full overflow-y-auto overflow-x-hidden flex flex-col justify-center items-center"
-    >
-      <div className="gl lg:text-9xl font-extrabold font-Azora flex h-fit flex-col w-fit justify-center text-6xl p-5 items-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-fit text-[#EC9E52]"
+    return (
+        <div
+            style={{
+                backgroundImage: `url(${bg_circle})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '33%',
+                backgroundPositionX: 'center',
+                backgroundAttachment: 'fixed',
+                backgroundPositionY: 'center',
+            }}
+            className="w-full min-h-screen p-8"
         >
-          GUEST
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full lg:translate-x-14 lg:-translate-y-14 translate-x-8 -translate-y-5 flex justify-end items-center text-[#00B951]"
-        >
-          LECTURES
-        </motion.div>
-      </div>
+            {/* Title Section */}
+            <div className="gl lg:text-9xl font-extrabold font-Azora flex h-fit flex-col w-fit justify-center text-6xl p-5 items-start mb-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-fit text-[#D68C45]"
+                >
+                    GUEST
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="w-full lg:translate-x-14 lg:-translate-y-14 translate-x-8 -translate-y-5 flex justify-end items-center text-[#D68C45]"
+                >
+                    LECTURES
+                </motion.div>
+            </div>
 
-      <div className="grid grid-cols-11 auto-rows-auto relative">
-        {gldata.gldata.map((gl, i) => {
-          return (
-            <CardWrapper key={i} index={i} gl={gl} />
-          );
-        })}
-      </div>
-    </div>
-  );
+            {/* Cards Container */}
+            <div className="max-w-[1920px] mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center grid-auto-rows-auto">
+                    {gldata.gldata.map((gl, i) => (
+                        <Card key={i} gl={gl} index={i} />
+                    ))}
+                </div>
+            </div>
+
+        </div>
+    );
 };
 
-const CardWrapper = ({ index, gl }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once: false,
-    margin: "-100px 0px"  // This creates a margin of 100px before the element comes into view
-  });
+interface GuestLecture {
+    image: string;
+    name: string;
+    designation: string;
+    address: string;
+}
 
-  const cardVariants = {
-    hidden: { 
-      x: index % 2 === 0 ? -100 : 100,
-      opacity: 0 
-    },
-    visible: { 
-      x: index % 2 === 0 ? 20 : -20,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
+const Card = ({ gl, index }: { gl: GuestLecture; index: number }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        once: false,
+        margin: "-50px 0px"
+    });
 
-  if (index === 0) {
+    const cardVariants = {
+        hidden: {
+            y: 50,
+            opacity: 0
+        },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.6,
+                delay: index % 4 * 0.1, // Slight delay based on position in row
+                ease: "easeOut"
+            }
+        }
+    };
+
     return (
-      <>
         <motion.div
-          ref={ref}
-          variants={cardVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className={`rounded-lg bg-blue-600 border-2 backdrop-blur-md border-orange-400 col-span-5 row-span-3 flex flex-col m-5 p-5`}
+            ref={ref}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="w-full"
         >
-          <img alt='img' src={glimg} className="rounded-xl size-fit" />
-          <div className="w-full text-lg md:text-2xl font-bold mt-5">{gl.name}</div>
-          <div className="w-full mt-4 text-[#EC9E52]">{gl.designation}</div>
-          <div className="w-full">{gl.address}</div>
+            {/* Card Frame */}
+            <div className="bg-black rounded-lg p-1 h-full" style={{
+                border: '2px solid #D4AF37',
+                boxShadow: '0 0 15px rgba(212, 175, 55, 0.3)'
+            }}>
+                {/* Image Container */}
+                <div className="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+                    <img
+                        src={gl.image}
+                        alt={gl.name}
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 shadow-inner"></div>
+                </div>
+
+                {/* Text Content */}
+                <div className="p-4 text-center bg-black rounded-b-lg">
+                    <h3 className="text-xl font-bold mb-2 text-[#D4AF37]">
+                        {gl.name}
+                    </h3>
+                    <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-2"></div>
+                    <p className="text-[#FFD700] font-medium mb-1 text-sm">{gl.designation}</p>
+                    <p className="text-[#FFD700]/80 text-xs">{gl.address}</p>
+                </div>
+            </div>
         </motion.div>
-        <div className="col-span-6 row-span-2" />
-        <div />
-      </>
     );
-  }
-
-  return (
-    <>
-      {index % 2 === 0 ? <div className="col-span-6" /> : null}
-      {index % 2 === 1 && index > 1 ? <div /> : null}
-      {index % 2 === 1 && index > 1 ? <div className="col-span-6" /> : null}
-      {index % 2 === 1 && index > 2 ? <div /> : null}
-
-      <motion.div
-        ref={ref}
-        variants={cardVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className={`rounded-lg ${index % 2 === 0 ? "bg-blue-600" : "bg-green-600"} border-2 border-orange-400 col-span-5 row-span-3 flex flex-col m-5 p-5 h-fit`}
-      >
-        <img src={glimg} alt='img' className="rounded-xl size-fit" />
-        <div className="w-full text-lg md:text-2xl font-bold mt-5">{gl.name}</div>
-        <div className="w-full mt-4 text-[#EC9E52]">{gl.designation}</div>
-        <div className="w-full">{gl.address}</div>
-      </motion.div>
-    </>
-  );
 };
 
 export default GuestLectures;

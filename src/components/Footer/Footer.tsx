@@ -8,6 +8,11 @@ const socialMediaLinks = [
     { name: "Facebook", link: "https://www.facebook.com/alchemy.nitt/", icon: Facebook }
 ];
 
+const contactDetails = [
+    { name: "Dakshesh S K", number: "+91 8610973425"},
+    { name: "Nantha Balan", number: "+91 8489751515"}
+]
+
 const Footer = () => {
 
     return (
@@ -22,10 +27,10 @@ const Footer = () => {
                         <div className="text-sm md:text-lg text-white">
                             <p>Contacts</p>
                             <div className="flex flex-col gap-2">
-                                {[1, 2].map((_, i) => (
+                                {contactDetails.map((info, i) => (
                                     <div key={i} className="flex gap-2">
-                                        <span>Name</span>
-                                        <span>9876543210</span>
+                                        <span>{info.name} :</span>
+                                        <span>{info.number}</span>
                                     </div>
                                 ))}
                             </div>

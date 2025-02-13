@@ -1,9 +1,7 @@
 import Lenis from '@studio-freight/lenis';
-import { events } from '../../data/events.json';
-import { workshops } from '../../data/workshops.json'
 import { useEffect, useRef, useState } from "react";
 import { AboutUs, Hero, FAQ, Workshops, Events, GuestLectures } from "..";
-import { EventCarousel, Footer, ImageCarousel } from "../../components";
+import { Footer, ImageCarousel } from "../../components";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -135,20 +133,22 @@ const Home = () => {
                     </div>
                 )}
 
-                <div className="h-screen w-screen">
+                <div className="h-screen w-screen md:mt-10">
                     <ImageCarousel />
                 </div>
-                <div>
-                    <Events/>
+                <div className='md:mt-10'>
+                    <Events />
                 </div>
-                <GuestLectures/>
-                <div>
-                    <Workshops/>
+                <div className='md:mt-10'>
+                    <GuestLectures />
                 </div>
-                <div className="min-h-screen flex justify-center items-center h-full w-screen">
+                <div className='md:mt-10'>
+                    <Workshops />
+                </div>
+                <div className="md:mt-10 min-h-screen flex justify-center items-center h-full w-screen">
                     <FAQ />
                 </div>
-                    <Footer />
+                <Footer />
             </div>
         </>
     );
