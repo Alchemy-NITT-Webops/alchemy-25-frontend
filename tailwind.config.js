@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily: {
         'IBMPlexSans': ['IBMPlexSans', 'sans-serif'],
-        'Azora': ['Azora', 'sans-serif']
+        'Azora': ['Azora', 'sans-serif'],
+        'Lato' : ['Lato', 'sans-serif']
       },
     },
   },

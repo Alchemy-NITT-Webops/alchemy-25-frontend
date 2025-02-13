@@ -27,6 +27,11 @@
 }
 
 @font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Azora';
   src: url('./assets//fonts/Azora-FreeDemo.otf') format('truetype');
 }
@@ -38,7 +43,24 @@
   }
 
   
-  
+.scroll-container {
+    height: 100vh; /* Each page takes full viewport height */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enables vertical snap */
+    scroll-behavior: smooth; /* Smooth snapping */
+}
+
+.page {
+  height: 100vh; /* Full viewport height */
+  scroll-snap-align: start; /* Snaps to the start of each section */
+}
+
+.about-card {
+  background: linear-gradient(45deg, #634e19, #1C1C1C, #3E2F15);
+  border-radius: 12px;
+  -webkit-backdrop-filter :blur(8px);
+  backdrop-filter: blur(8px);
+}
   
   
   

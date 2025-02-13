@@ -1,0 +1,29 @@
+.box{
+    border: 2.88px solid #F4CC04;
+    opacity: 0.7;
+    background: linear-gradient(180deg, rgba(244, 204, 4, 0.50) 0%, rgba(236, 158, 82, 0.50) 100%);
+}
+
+.box1{
+    border: 2.8px solid #F4CC04;
+    opacity: 0.8;   
+}
+
+.alchemy {
+    background: linear-gradient(90deg, #FFD700 0%, #865A2F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.alchemy25{
+    background: linear-gradient(90deg, #FFD700 0%, #FFC9B9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.smallbox{
+    border: 1px solid #70522E;
+    background: #715A20;
+}

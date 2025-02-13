@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 //@ts-ignore
 const AnimatedTextCharacter = ({ text }) => {
-// splitting text into letters
+  // splitting text into letters
   const letters = Array.from(text);
 
-// Variants for Container
+  // Variants for Container
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -14,7 +14,7 @@ const AnimatedTextCharacter = ({ text }) => {
     }),
   };
 
-// Variants for each letter
+  // Variants for each letter
   const child = {
     visible: {
       opacity: 1,
@@ -46,8 +46,8 @@ const AnimatedTextCharacter = ({ text }) => {
       animate="visible"
     >
       {letters.map((letter, index) => (
-        <motion.span variants={child} key={index} className={`${index>6? 'text-[#D68C45]':'#D68C45' }`}>
-            {/* @ts-ignore */}
+        <motion.span variants={child} key={index} className={`${index >= 0 ? 'text-[#D68C45]' : '#D68C45'}`}>
+          {/* @ts-ignore */}
           {letter === " " ? "\u00A0" : letter}
 
         </motion.span>
