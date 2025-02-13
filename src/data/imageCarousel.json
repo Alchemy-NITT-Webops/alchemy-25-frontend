@@ -2,42 +2,42 @@
     "imageCarouselData": [
         {
             "id": 1,
-            "image": "src/assets/highlights/highlight_1.png",
+            "image": "assets/highlights/highlight_1.png",
             "title": "highlight 1",
             "artist": "",
             "duration": ""
         },
         {
             "id": 2,
-            "image": "src/assets/highlights/highlight_2.png",
+            "image": "assets/highlights/highlight_2.png",
             "title": "highlight 2",
             "artist": "",
             "duration": ""
         },
         {
             "id": 3,
-            "image": "src/assets/highlights/highlight_3.png",
+            "image": "assets/highlights/highlight_3.png",
             "title": "highlight 2",
             "artist": "",
             "duration": ""
         },
         {
             "id": 4,
-            "image": "src/assets/highlights/highlight_4.png",
+            "image": "assets/highlights/highlight_4.png",
             "title": "highlight 2",
             "artist": "",
             "duration": ""
         },
         {
             "id": 5,
-            "image": "src/assets/highlights/highlight_5.png",
+            "image": "assets/highlights/highlight_5.png",
             "title": "highlight 2",
             "artist": "",
             "duration": ""
         },
         {
             "id": 6,
-            "image": "src/assets/highlights/highlight_6.png",
+            "image": "assets/highlights/highlight_6.png",
             "title": "highlight 2",
             "artist": "",
             "duration": ""

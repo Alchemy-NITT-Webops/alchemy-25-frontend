@@ -1,19 +1,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import bg_circle from '../../assets/gl_bg_circle.png';
 import gldata from '../../data/gl.json';
 
 const GuestLectures = () => {
     return (
         <div
-            style={{
-                backgroundImage: `url(${bg_circle})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: '33%',
-                backgroundPositionX: 'center',
-                backgroundAttachment: 'fixed',
-                backgroundPositionY: 'center',
-            }}
             className="w-full min-h-screen p-8"
         >
             {/* Title Section */}

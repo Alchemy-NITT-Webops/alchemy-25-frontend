@@ -3,21 +3,21 @@
         {
             "id": 1,
             "title": "Alchemy Arena",
-            "image": "src/assets/events/event_1.jpg",
+            "image": "assets/events/event_1.jpg",
             "dateTime": "1 March 2025",
             "registerLink": "https://qr.me-qr.com/BsqeBwL9"
         },
         {
             "id": 2,
             "title": "Paper Presentation",
-            "image": "src/assets/events/event_2.jpg",
+            "image": "assets/events/event_2.jpg",
             "dateTime": "28 Feb 2025",
             "registerLink": "https://docs.google.com/forms/d/e/1FAIpQLSfZzcZ_8Xa2_IX12KIIVTPIBsOMl3-EbGg03WLSQSD8mOgH_g/viewform?usp=send_form"
         },
         {
             "id": 3,
             "title": "CHEMIMPACT",
-            "image": "src/assets/events/event_3.jpg",
+            "image": "assets/events/event_3.jpg",
             "dateTime": "1 March 2025",
             "registerLink": "https://unstop.com/o/9FTtgM4?lb=98SYj1zC"
         }
