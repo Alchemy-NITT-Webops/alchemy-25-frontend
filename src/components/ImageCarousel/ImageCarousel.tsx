@@ -71,14 +71,9 @@ const ImageCarousel = () => {
         setTimeout(() => setIsAnimating(false), 700);
     }, [isAnimating]);
 
-    // Added pause/play functionality
-    const togglePause = useCallback(() => {
-        setIsPaused(prev => !prev);
-    }, []);
-
     useEffect(() => {
         if (!isPaused) {
-            autoPlayRef.current = setInterval(handleNext, 1000); // Increased interval for better UX
+            autoPlayRef.current = setInterval(handleNext, 3000); // Increased interval for better UX
         }
         return () => {
             if (autoPlayRef.current) {
@@ -87,18 +82,17 @@ const ImageCarousel = () => {
         };
     }, [handleNext, isPaused]);
 
-    const handleGestureStart = (e) => {
+    const handleGestureStart = (e: any) => {
         setIsDragging(true);
         setStartX("touches" in e ? e.touches[0].pageX : e.pageX);
         setIsPaused(true);
     };
 
-    const handleGestureMove = (e) => {
+    const handleGestureMove = (e: any) => {
         if (!isDragging) return;
         const x = "touches" in e ? e.touches[0].pageX : e.pageX;
         const deltaX = x - startX;
         if (Math.abs(deltaX) > 50) {
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             deltaX > 0 ? handlePrev() : handleNext();
             setIsDragging(false);
         }
@@ -108,30 +102,6 @@ const ImageCarousel = () => {
         setIsDragging(false);
         setTimeout(() => setIsPaused(false), 1000);
     };
-
-    const NavigationButton = ({ direction, onClick }: { direction: 'prev' | 'next'; onClick: () => void }) => (
-        <button
-            type="button"
-            onClick={(e) => {
-                e.stopPropagation(); // Prevent gesture handling
-                onClick();
-            }}
-            className={`absolute top-1/2 -translate-y-1/2 z-20 bg-white/80 p-2 rounded-full 
-                hover:bg-white transition-all duration-300 hover:scale-110
-                ${direction === 'prev' ? 'left-4' : 'right-4'}
-                ${isMobile ? 'w-10 h-10' : 'w-12 h-12'}`}
-        >
-            {direction === 'prev' ? (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-800 w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-            ) : (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-800 w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-            )}
-        </button>
-    );
 
     return (
         <div className={`min-h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center md:justify-between transition-colors duration-1000 
@@ -147,34 +117,16 @@ const ImageCarousel = () => {
                 onTouchMove={handleGestureMove}
                 onTouchEnd={handleGestureEnd}
             >
-                <NavigationButton direction="prev" onClick={handlePrev} />
-                <NavigationButton direction="next" onClick={handleNext} />
-
-                {/* Added pause/play button */}
-                <button
-                    onClick={togglePause}
-                    className="absolute bottom-4 right-4 z-20 bg-white/80 p-2 rounded-full hover:bg-white transition-all duration-300 hover:scale-110"
-                >
-                    {isPaused ? (
-                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    ) : (
-                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                            <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
-                        </svg>
-                    )}
-                </button>
 
                 {images.imageCarouselData.map((image) => (
                     <div
                         key={image.id}
-                        className={`absolute w-full md:w-[80vw] h-full left-0 right-0 mx-auto ${getCardStyle(image.id)}`}
+                        className={`absolute w-full md:w-[80vw] h-full  mx-auto ${getCardStyle(image.id)}`}
                     >
                         <img
                             src={image.image}
                             alt={image.title}
-                            className="w-full h-full rounded-lg object-cover shadow-lg"
+                            className="w-full h-full rounded-lg object-contain shadow-lg"
                             draggable="false"
                         />
                     </div>

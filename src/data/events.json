@@ -2,31 +2,24 @@
     "events": [
         {
             "id": 1,
-            "title": "Event 1",
-            "image": "'../../src/assets/event1.jpeg'",
-            "dateTime": "24 Feb 2024 | 6:00 PM",
-            "registerLink": "https://example.com/register/dota2"
+            "title": "Alchemy Arena",
+            "image": "src/assets/events/event_1.jpg",
+            "dateTime": "1 March 2025",
+            "registerLink": "https://qr.me-qr.com/BsqeBwL9"
         },
         {
             "id": 2,
-            "title": "The Witcher 3",
-            "image": "'../../src/assets/event1.jpeg'",
-            "dateTime": "2023-11-02T18:00:00Z",
-            "registerLink": "https://example.com/register/witcher3"
+            "title": "Paper Presentation",
+            "image": "src/assets/events/event_2.jpg",
+            "dateTime": "28 Feb 2025",
+            "registerLink": "https://docs.google.com/forms/d/e/1FAIpQLSfZzcZ_8Xa2_IX12KIIVTPIBsOMl3-EbGg03WLSQSD8mOgH_g/viewform?usp=send_form"
         },
         {
             "id": 3,
-            "title": "RDR 2",
-            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
-            "dateTime": "2023-11-03T18:00:00Z",
-            "registerLink": "https://example.com/register/rdr2"
-        },
-        {
-            "id": 4,
-            "title": "PUBG Mobile",
-            "image": "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
-            "dateTime": "2023-11-04T18:00:00Z",
-            "registerLink": "https://example.com/register/pubg"
+            "title": "CHEMIMPACT",
+            "image": "src/assets/events/event_3.jpg",
+            "dateTime": "1 March 2025",
+            "registerLink": "https://unstop.com/o/9FTtgM4?lb=98SYj1zC"
         }
     ]
 }

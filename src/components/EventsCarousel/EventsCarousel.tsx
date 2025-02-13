@@ -18,7 +18,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
     const [isAnimating, setIsAnimating] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const autoplayRef = useRef<NodeJS.Timeout>();
+    const autoplayRef = useRef<ReturnType<typeof setTimeout>>();
 
     const scrollToCard = (id: number) => {
         if (isAnimating) return;
@@ -141,7 +141,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
                                 }`}
                             />
 
-                            <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 text-white transition-all duration-500 ease-in-out">
+                            <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 text-white transition-all duration-500 ease-in-out bg-[#00000080] ">
                                 <h3 className={`font-bold font-Lato mb-2 transition-all duration-500
                                     ${activeId === event.id ? 'text-lg md:text-4xl' : 'text-base md:text-lg'}`}
                                 >

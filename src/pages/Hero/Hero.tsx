@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './style.css'
 import clsx from 'clsx'
+import AnimatedTextCharacter from '../../components/AnimatedTextCharacter'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -74,7 +75,7 @@ const Hero = () => {
             <div
                 ref={spinningRef}
                 className={clsx(
-                    "hidden md:flex -rotate-45 flex-col absolute h-[90vh]",
+                    " md:flex -rotate-45 flex-col absolute h-[90vh]",
                     "w-[80%] -translate-x-[40%] -translate-y-[25%] xs:w-[70%] xs:-translate-x-[35%] sm:w-[60%] sm:-translate-x-[30%]",
                     "md:w-[45%] md:-translate-x-[30%] md:-translate-y-[15%]",
                     "lg:w-[35%] lg:-translate-x-[30%] left-0 items-center justify-center"
@@ -95,8 +96,9 @@ const Hero = () => {
 
             <div className='flex flex-col w-full md:w-3/5 items-center justify-center gap-3 mt-20 md:mt-0'>
                 <div className='flex items-center justify-center gap-2 sm:gap-5'>
-                    <LettersPullUp delay={0.08} text={`ALCHEMY`} className='alchemy font-IBMPlexSans' />
-                    <LettersPullUp delay={8 * 0.08} text={`25'`} className='alchemy25 font-IBMPlexSans' />
+                    <div className='text-4xl xs:text-9xl sm:text-5xl md:text-6xl lg:text-8xl font-bold'>
+                        <AnimatedTextCharacter text={"ALCHEMY '25"} />
+                    </div>
                 </div>
                 <GradualSpacing
                     text={"Digitalization of Chemical Engineering"}
