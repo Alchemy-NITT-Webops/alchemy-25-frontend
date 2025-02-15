@@ -16,9 +16,7 @@ interface EventsData {
 const EventCarousel = ({ eventsData }: EventsData) => {
     const [activeId, setActiveId] = useState(1);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [isPaused, setIsPaused] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const autoplayRef = useRef<ReturnType<typeof setTimeout>>();
 
     const scrollToCard = (id: number) => {
         if (isAnimating) return;
@@ -62,25 +60,6 @@ const EventCarousel = ({ eventsData }: EventsData) => {
         scrollToCard(id);
     };
 
-    useEffect(() => {
-        if (!isPaused) {
-            autoplayRef.current = setInterval(() => {
-                handleNext();
-            }, 2000);
-        }
-
-        return () => {
-            if (autoplayRef.current) {
-                clearInterval(autoplayRef.current);
-            }
-        };
-    }, [activeId, isPaused]);
-
-    const handleMouseEnter = () => setIsPaused(true);
-    const handleMouseLeave = () => setIsPaused(false);
-    const handleTouchStart = () => setIsPaused(true);
-    const handleTouchEnd = () => setIsPaused(false);
-
     // Initial centering of active card
     useEffect(() => {
         scrollToCard(activeId);
@@ -90,8 +69,6 @@ const EventCarousel = ({ eventsData }: EventsData) => {
         <section className="relative w-full select-none overflow-hidden">
             <div
                 className="relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
             >
                 <button
                     onClick={handlePrev}
@@ -114,8 +91,6 @@ const EventCarousel = ({ eventsData }: EventsData) => {
                 <div
                     ref={containerRef}
                     className="flex gap-4 md:gap-6 overflow-x-hidden px-4 md:px-8 no-scrollbar scroll-smooth py-4 touch-pan-x"
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
                 >
                     {eventsData.map((event) => (
                         <div
@@ -125,7 +100,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
                                 transition-all duration-500 ease-in-out transform 
                                 ${activeId === event.id
                                     ? 'w-[85vw] md:w-[35vw] scale-100 shadow-2xl brightness-150'
-                                    : 'w-[85vw] md:w-[20vw] scale-95 brightness-10 opacity-70 blur-[4px] hover:brightness-110'
+                                    : 'w-[85vw] md:w-[20vw] scale-95 brightness-10 opacity-70 hover:brightness-150'
                                 }`}
                             onClick={() => handleCardClick(event.id)}
                         >
@@ -151,16 +126,28 @@ const EventCarousel = ({ eventsData }: EventsData) => {
                                 {activeId === event.id && (
                                     <div className="space-y-3 transition-all duration-500 ease-in-out opacity-100">
                                         <p className="text-xs md:text-lg font-IBMPlexSans opacity-85 text-white/90">{event.dateTime}</p>
-                                        <a
-                                            href={event.registerLink}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="inline-block px-4 md:px-6 py-1.5 md:py-2 bg-white font-IBMPlexSans text-black rounded-md
-                                                text-xs md:text-sm font-bold transition-all duration-300 
-                                                hover:bg-white/90 hover:scale-105"
-                                        >
-                                            Register Now
-                                        </a>
+                                        {
+                                            event.registerLink !== "" ? (<a
+                                                href={event.registerLink}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="inline-block px-4 md:px-6 py-1.5 md:py-2 bg-white font-IBMPlexSans text-black rounded-md
+                                                    text-xs md:text-sm font-bold transition-all duration-300 
+                                                    hover:bg-white/90 hover:scale-105"
+                                            >
+                                                Register Now
+                                            </a>) : (
+                                                <p
+                                                    rel="noreferrer"
+                                                    className="inline-block px-4 md:px-6 py-1.5 md:py-2 bg-white font-IBMPlexSans text-black rounded-md
+                                                    text-xs md:text-sm font-bold transition-all duration-300 cursor-not-allowed
+                                                    hover:bg-white/90 hover:scale-105"
+                                                >
+                                                    Event Ended
+                                                </p>
+                                            )
+                                        }
+
                                     </div>
                                 )}
                             </div>

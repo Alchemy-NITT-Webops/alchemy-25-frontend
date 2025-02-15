@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import AnimatedTextCharacter from "../AnimatedTextCharacter";
 
 interface FAQItem {
     id: string;
@@ -65,7 +66,7 @@ const FAQAccordion: React.FC = () => {
 
     return (
         <div className="w-full h-full flex flex-col items-center justify-center">
-            <h2 className="text-4xl mb-12 md:invisible visible font-Azora font-extrabold text-[#D68C45] opacity-95 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-4xl mb-12 md:invisible visible font-Azora font-extrabold text-[#D68C45] opacity-95 text-center"><AnimatedTextCharacter text={"Frequently Asked"} /><AnimatedTextCharacter text={"Questions"}/></h2>
             <div className="md:w-[80%] w-full flex flex-col items-center justify-center">
                 {faqData.map((item) => (
                     <AccordionItem

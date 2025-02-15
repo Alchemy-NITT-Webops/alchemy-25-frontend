@@ -43,13 +43,13 @@ const AnimatedTextCharacter = ({ text }) => {
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true }}
     >
       {letters.map((letter, index) => (
         <motion.span variants={child} key={index} className={`${index >= 0 ? 'text-[#D68C45]' : '#D68C45'}`}>
           {/* @ts-ignore */}
           {letter === " " ? "\u00A0" : letter}
-
         </motion.span>
       ))}
     </motion.div>

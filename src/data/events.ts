@@ -1,6 +1,7 @@
 import event_1 from "../assets/events/event_1.jpg";
 import event_2 from "../assets/events/event_2.jpg";
 import event_3 from "../assets/events/event_3.jpg";
+import event_4 from "../assets/events/event_4.jpg";
 // types.ts
 interface Event {
     id: number;
@@ -31,6 +32,13 @@ export const events: Event[] = [
         image: event_3,
         dateTime: "1 March 2025",
         registerLink: "https://unstop.com/o/9FTtgM4?lb=98SYj1zC"
+    },
+    {
+        id: 4,
+        title: "CHEMPARDY",
+        image: event_4,
+        dateTime: "1 March 2025",
+        registerLink: "https://docs.google.com/forms/d/e/1FAIpQLScHr1rN4RKYE55AM9ABmSvGsysnCMo_1ruRSB1QXmZjyArWpg/viewform"
     }
 ];
 

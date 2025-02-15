@@ -1,5 +1,5 @@
 import AnimatedTextCharacter from "../../components/AnimatedTextCharacter"
-import { aboutUsData } from "../../data/aboutsUsData.json"
+import { aboutUsData } from "../../data/aboutsUsData"
 const AboutUs = () => {
     return (
 
@@ -7,8 +7,8 @@ const AboutUs = () => {
             <div className="lg:text-8xl font-bold font-Azora flex h-fit flex-col w-fit items-center justify-center text-4xl p-5">
                 <AnimatedTextCharacter text={"About Us"} />
             </div>
-            <div className="flex p-2 md:p-5 items-center m-4 justify-center about-card md:w-[55%] h-fit">
-                <p className="font-Lato font-normal opacity-75 text-base md:text-xl tracking-normal overflow-hidden text-white p-5 sm:p-10 flex items-start justify-start h-full w-full">
+            <div className="flex items-center offse m-4 lg:w-1/2 justify-center about-card h-fit">
+                <p className="font-Lato font-normal opacity-75 text-base md:text-lg tracking-normal overflow-hidden text-white p-5 sm:p-10 flex items-start justify-start h-full w-full">
                     {aboutUsData}
                 </p>
             </div>

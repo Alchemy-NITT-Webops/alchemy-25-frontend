@@ -1,60 +1,87 @@
-const Accomodation = () => {
-    // Example coordinates - replace with actual campus coordinates
-    const campusLocation = { lat: 20.1458, lng: 85.6741 }; // Replace with actual coordinates
+import { useEffect, useRef } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import AnimatedTextCharacter from '../../components/AnimatedTextCharacter';
+
+const Accommodation = () => {
+    const mapRef = useRef(null);
+    const mapInstanceRef = useRef<L.Map | null>(null);
+    const campusLocation = { lat: 10.76344, lng: 78.81543 };
+
+    useEffect(() => {
+        // Cleanup previous map instance before re-creating
+        if (mapInstanceRef.current) {
+            mapInstanceRef.current.remove();
+            mapInstanceRef.current = null;
+        }
+
+        if (mapRef.current) {
+            mapInstanceRef.current = L.map(mapRef.current,
+                {
+                    scrollWheelZoom: false,
+                }
+            ).setView([campusLocation.lat, campusLocation.lng], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapInstanceRef.current);
+
+            L.marker([campusLocation.lat, campusLocation.lng])
+                .addTo(mapInstanceRef.current)
+                .bindPopup('NIT Trichy')
+                .openPopup();
+        }
+
+        return () => {
+            if (mapInstanceRef.current) {
+                mapInstanceRef.current.remove();
+                mapInstanceRef.current = null;
+            }
+        };
+    }, []);
 
     return (
-        <div className=" rounded-md overflow-hidden w-full flex-col flex items-center gap-20 justify-start">
+        <div className="rounded-md mt-20 overflow-hidden w-full flex-col flex items-center gap-20 justify-start">
             <div className="flex justify-center lg:-mb-24 sm:-mb-20 -mb-16 h-fit w-full items-center">
                 <div className="about lg:text-8xl font-extrabold flex h-fit flex-col w-fit justify-center text-4xl md:text-7xl p-5 items-start">
                     <div className="w-fit font-Azora text-[#EC9E52]">
-                        A
-                    </div>
-                    <div className="w-fit ml-5 -mt-7 md:ml-8 md:-mt-14 lg:ml-12 lg:-mt-14  font-Azora text-[#EC9E52]">
-                        CCOMMODATION
+                        <AnimatedTextCharacter text={"Accommodation"} />
                     </div>
                 </div>
-                <div className="accomodationcontent w-full bg-black h-[2px] ml-4 sm:ml-10 mr-5 rounded-sm shadow-sm" />
+                <div className='w-full'/>
             </div>
 
-            <div className="text-black font-sans gap-5 text-2xl overflow-hidden p-5 sm:p-10 flex flex-col items-start justify-start h-full w-full">
+            <div className="text-white font-sans gap-5 overflow-hidden p-5 sm:p-10 flex flex-col items-start justify-start h-full w-full">
                 <div>
-                    Alchemy'24 is happy to provide accommodation for all the participants and ensure a comfortable experience throughout the duration. Register to avail the accommodation.
+                    Alchemy '25 is happy to provide accommodation for all the participants and ensure a comfortable experience throughout the duration. Register to avail the accommodation.
                 </div>
-                <div className="text-[#03652E]">
+                <div className="text-[#D68C45]">
                     Accommodation Fee:
-                    <span className="text-black">₹ 375</span>
-                    <div className="text-black">
+                    <span className="text-white ml-2">₹ 250</span>
+                    <div className="text-white">
                         (Including Food Coupon)
                     </div>
                 </div>
 
-                <div className="text-[#03652E]">
+                <div className="text-[#D68C45]">
                     Caution Deposit:
-                    <span className="text-black">₹ 100</span>
+                    <span className="text-white ml-2">₹ 100</span>
                 </div>
 
-                {/* Google Maps Integration */}
                 <div className="w-full mt-8">
-                    <h2 className="text-[#03652E] text-2xl mb-4">Campus Location</h2>
-                    <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
-                        <iframe
-                            title="Google Maps"
-                            className="w-full h-full border-0"
-                            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBYcWv5aBel9Ks8SjWQcKSQReZqn_9xfco&q=${campusLocation.lat},${campusLocation.lng}&zoom=15`}
-                            allowFullScreen
-                        />
-                    </div>
-                    <div className="mt-4 text-base text-gray-600">
-                        * You can zoom in/out and drag the map to explore the surroundings
-                    </div>
+                    <h2 className="text-[#D68C45] text-2xl mb-4">Campus Location</h2>
+                    <div 
+                        ref={mapRef} 
+                        className="w-full h-[50vh] rounded-lg overflow-hidden shadow-lg"
+                        style={{ minHeight: "30vh" }} // Ensuring height is set properly
+                    ></div>
                 </div>
 
-                {/* Optional: Add directions button */}
                 <a
                     href={`https://www.google.com/maps/dir/?api=1&destination=${campusLocation.lat},${campusLocation.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 bg-[#03652E] text-white px-6 py-2 rounded-lg hover:bg-[#024423] transition-colors"
+                    className="mt-4 bg-[#D68C45] text-white px-6 py-2 rounded-lg hover:bg-[#D68C45]/80 transition-colors duration-300"
                 >
                     Get Directions
                 </a>
@@ -63,4 +90,4 @@ const Accomodation = () => {
     );
 };
 
-export default Accomodation;
+export default Accommodation;

@@ -1,7 +1,8 @@
+// Home.tsx
 import Lenis from '@studio-freight/lenis';
 import { useEffect, useRef, useState } from "react";
-import { AboutUs, Hero, FAQ, Workshops, Events, GuestLectures } from "..";
-import { Footer, ImageCarousel } from "../../components";
+import { AboutUs, Hero, FAQ, Workshops, Events, GuestLectures, Accomodation } from "..";
+import { Footer, ImageCarousel, Navbar } from "../../components";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -78,13 +79,16 @@ const Home = () => {
         };
     }, [isMobile]);
 
+    const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null); // State to hold Lenis instance
+
     useEffect(() => {
-        const lenis = new Lenis({
+        const lenis = new Lenis({ // Create Lenis instance
             duration: 2.5,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
             wheelMultiplier: 0.8
         });
+        setLenisInstance(lenis); // Set Lenis instance in state
 
         function raf(time: number) {
             lenis.raf(time);
@@ -97,16 +101,17 @@ const Home = () => {
 
     return (
         <>
+        <Navbar lenis={lenisInstance} isMobile={isMobile} /> {/* Pass lenis instance as prop */}
             <div className="snap-mandatory w-full bg-[#1C1C1C]">
-                <div className="h-screen w-full">
+                <div id="hero" className="h-screen w-full"> 
                     <Hero />
                 </div>
                 {isMobile ? (
-                    <div className="min-h-screen w-full">
+                    <div id="about-us" className="min-h-screen w-full"> 
                         <AboutUs />
                     </div>
                 ) : (
-                    <div ref={containerRef} className="overflow-x-hidden relative h-screen">
+                    <div ref={containerRef} className="overflow-x-hidden relative min-h-screen h-full">
                         <div
                             ref={scrollSectionRef}
                             className="h-full relative"
@@ -115,7 +120,7 @@ const Home = () => {
                             <div className="h-screen w-full flex items-center justify-center bg-[#1C1C1C] absolute">
                                 <div
                                     ref={whoAreWeRef}
-                                    className="lg:text-9xl floater font-extrabold opacity-80 flex items-center gap-6 font-Azora"
+                                    className="lg:text-9xl text-6xl floater font-extrabold opacity-80 flex items-center gap-6 font-Azora"
                                 >
                                     <div className="w-24 h-4 smallbox"></div>
                                     <div className="text-[#EC9E52]">
@@ -124,8 +129,9 @@ const Home = () => {
                                 </div>
                             </div>
                             <div
+                                id="about-us" // Added ID
                                 ref={aboutUsRef}
-                                className="h-screen w-full absolute top-0 left-0"
+                                className="min-h-screen h-full w-full"
                             >
                                 <AboutUs />
                             </div>
@@ -133,19 +139,22 @@ const Home = () => {
                     </div>
                 )}
 
-                <div className="h-screen w-full md:mt-10">
+                <div id="image-carousel" className="h-screen w-full md:mt-10"> 
                     <ImageCarousel />
                 </div>
-                <div className='md:mt-10'>
+                <div id="events" className='md:mt-10'> 
                     <Events />
                 </div>
-                <div className='md:mt-10'>
+                <div id="guest-lectures" className='md:mt-36'> 
                     <GuestLectures />
                 </div>
-                <div className='md:mt-10'>
+                <div id="workshops" className='md:mt-10'> 
                     <Workshops />
                 </div>
-                <div className="md:mt-10 min-h-screen flex justify-center items-center h-full w-full">
+                <div id="accommodation" className='md:mt-10' > 
+                    <Accomodation />
+                </div>
+                <div id="faq" className="min-h-screen flex justify-center items-center h-full w-full"> 
                     <FAQ />
                 </div>
                 <Footer />

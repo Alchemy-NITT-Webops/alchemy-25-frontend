@@ -30,32 +30,32 @@ const ImageCarousel = () => {
         const prevIndex = (currentIndex - 1 + total) % total;
         const nextIndex = (currentIndex + 1) % total;
 
-        if (isMobile) {
-            return [imageCarouselData[currentIndex]];
-        }
+        // if (isMobile) {
+        //     return [imageCarouselData[currentIndex]];
+        // }
 
         return [
             imageCarouselData[prevIndex],
             imageCarouselData[currentIndex],
             imageCarouselData[nextIndex],
         ];
-    }, [selectedItem, isMobile]);
+    }, [selectedItem]);
 
     const getCardStyle = useCallback((imageId: number) => {
         const visibleImages = getVisibleImages();
         const image = imageCarouselData.find((img) => img.id === imageId);
         if (!image || !visibleImages.includes(image)) return "hidden";
 
-        if (isMobile) {
-            return imageId === selectedItem
-                ? "scale-100 opacity-100 z-10 transition-all duration-700 ease-in-out"
-                : "hidden";
-        }
+        // if (isMobile) {
+        //     return imageId === selectedItem
+        //         ? "scale-100 opacity-100 z-10 transition-all duration-700 ease-in-out"
+        //         : "hidden";
+        // }
 
         return imageId === selectedItem
             ? "scale-100 opacity-100 z-10 transition-all duration-700 ease-in-out"
             : "scale-[85%] opacity-40 z-0 transition-all duration-700 ease-in-out";
-    }, [getVisibleImages, isMobile, selectedItem]);
+    }, [getVisibleImages, selectedItem]);
 
     const handleNext = useCallback(() => {
         if (isAnimating) return;
@@ -102,10 +102,8 @@ const ImageCarousel = () => {
         setIsDragging(false);
         setTimeout(() => setIsPaused(false), 1000);
     };
-
     return (
-        <div className={`min-h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center md:justify-between transition-colors duration-1000 
-            ${isMobile ? 'px-4 gap-8' : 'pl-4'}`}>
+        <div className={`min-h-screen w-full flex gap-10 flex-col-reverse md:flex-row items-center justify-center transition-colors duration-1000`}>
 
             <div className="relative w-full md:w-[60%] h-[50vh] md:h-[80vh] flex items-center justify-center overflow-hidden"
                 ref={carouselRef}
@@ -126,15 +124,32 @@ const ImageCarousel = () => {
                         <img
                             src={image.image}
                             alt={image.title}
-                            className="w-full h-full rounded-lg object-contain shadow-lg"
+                            className="w-full h-full flex-1 rounded-lg object-contain shadow-lg"
                             draggable="false"
                         />
                     </div>
                 ))}
+
+                <button
+                    onClick={handlePrev}
+                    className="absolute z-50 left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+                >
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="text-gray-800 z-50">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    onClick={handleNext}
+                    className="absolute z-50 right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+                >
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" className="text-gray-800 z-50">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
 
-            <div className="w-full md:w-[40%] flex items-center justify-center text-center md:text-left">
-                <div className="text-4xl md:text-6xl lg:text-8xl font-extrabold font-Azora">
+            <div className="w-min flex  items-center justify-center text-center md:text-left">
+                <div className="text-6xl  lg:text-7xl font-extrabold font-Azora">
                     <AnimatedTextCharacter text="Highlights" />
                 </div>
             </div>

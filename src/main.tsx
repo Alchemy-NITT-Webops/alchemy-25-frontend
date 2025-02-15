@@ -15,18 +15,10 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Suspense fallback={<Loader />}>
-        <Navbar isMobile={false} />
-        <Navbar isMobile={true} />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/workshops" element={<Workshops />} />
-          <Route path="/guest-lectures" element={<GuestLectures />} />
-          <Route path="/accommodation" element={<Accomodation />} />
-          <Route path="/contact" element={<ContactUs />} />
           <Route path="*" element={<Loader />} />
         </Routes>
-        {/* <Footer /> */}
       </Suspense>
     </BrowserRouter>
   </StrictMode>,

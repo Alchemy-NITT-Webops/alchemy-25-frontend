@@ -101,7 +101,7 @@ const Hero = () => {
                 </div>
                 <GradualSpacing
                     text={"Digitalization of Chemical Engineering"}
-                    className='font-Lato'
+                    className='font-Lato text-xs'
                 />
             </div>
 

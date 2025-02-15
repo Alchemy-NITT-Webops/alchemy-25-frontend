@@ -1,53 +1,37 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import {gldata} from '../../data/gl';
+import { gldata, GLPerson } from '../../data/gl';
+import AnimatedTextCharacter from '../../components/AnimatedTextCharacter';
 
 const GuestLectures = () => {
     return (
-        <div
-            className="w-full min-h-screen p-8"
-        >
+        <div className="w-full min-h-screen p-8">
             {/* Title Section */}
-            <div className="gl lg:text-9xl font-extrabold font-Azora flex h-fit flex-col w-fit justify-center text-6xl p-5 items-start mb-20">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+            <div className="lg:text-8xl font-extrabold font-Azora flex h-fit flex-col w-fit justify-center text-6xl items-start">
+                <div
                     className="w-fit text-[#D68C45]"
                 >
-                    GUEST
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="w-full lg:translate-x-14 lg:-translate-y-14 translate-x-8 -translate-y-5 flex justify-end items-center text-[#D68C45]"
-                >
-                    LECTURES
-                </motion.div>
+                    <AnimatedTextCharacter text={"Guest"} />
+                    <AnimatedTextCharacter text={"Lectures"} />
+                </div>
             </div>
 
             {/* Cards Container */}
             <div className="max-w-[1920px] mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center grid-auto-rows-auto">
+                <div className="flex flex-row flex-wrap md:flex-nowrap justify-center items-center">
                     {gldata.map((gl, i) => (
-                        <Card key={i} gl={gl} index={i} />
+                        <div key={i} className={`flex w-full  lg:w-1/4`}>
+                            <Card gl={gl} index={i} />
+                        </div>
                     ))}
                 </div>
             </div>
-
         </div>
     );
 };
 
-interface GuestLecture {
-    image: string;
-    name: string;
-    designation: string;
-    address: string;
-}
 
-const Card = ({ gl, index }: { gl: GuestLecture; index: number }) => {
+const Card = ({ gl, index }: { gl: GLPerson; index: number }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         once: false,
@@ -79,7 +63,7 @@ const Card = ({ gl, index }: { gl: GuestLecture; index: number }) => {
             className="w-full"
         >
             {/* Card Frame */}
-            <div className="bg-black rounded-lg p-1 h-full" style={{
+            <div className="bg-black rounded-lg p-1 scale-[80%]" style={{
                 border: '2px solid #D4AF37',
                 boxShadow: '0 0 15px rgba(212, 175, 55, 0.3)'
             }}>
@@ -99,8 +83,11 @@ const Card = ({ gl, index }: { gl: GuestLecture; index: number }) => {
                         {gl.name}
                     </h3>
                     <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-2"></div>
-                    <p className="text-[#FFD700] font-medium mb-1 text-sm">{gl.designation}</p>
-                    <p className="text-[#FFD700]/80 text-xs">{gl.address}</p>
+                    <p className="text-[#D4AF37] font-medium mb-1 text-sm">{gl.designation}</p>
+                    <p className="text-[#D4AF37] text-sm">{gl.address}</p>
+                    <span className='text-white/50 mt-2 text-xs'>on the topic
+                    </span>
+                    <p className="text-[#D4AF37] text-lg">{gl.topic}</p>
                 </div>
             </div>
         </motion.div>
