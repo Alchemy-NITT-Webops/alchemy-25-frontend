@@ -25,11 +25,24 @@ const Accommodation = () => {
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(mapInstanceRef.current);
+            const customIcon = L.divIcon({
+                className: 'custom-marker',
+                html: `
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-6 h-6 bg-orange-500 border-2 border-white rounded-full shadow-lg animate-pulse"></div>
+                        <div class="absolute w-10 h-10 bg-orange-500 opacity-30 rounded-full animate-ping"></div>
+                    </div>
+                `,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            });
 
-            L.marker([campusLocation.lat, campusLocation.lng])
+            L.marker([campusLocation.lat, campusLocation.lng], { icon: customIcon })
                 .addTo(mapInstanceRef.current)
-                .bindPopup('NIT Trichy')
+                .bindPopup('📍 NIT Trichy')
                 .openPopup();
+
+
         }
 
         return () => {
@@ -48,7 +61,7 @@ const Accommodation = () => {
                         <AnimatedTextCharacter text={"Accommodation"} />
                     </div>
                 </div>
-                <div className='w-full'/>
+                <div className='w-full' />
             </div>
 
             <div className="text-white font-sans gap-5 overflow-hidden p-5 sm:p-10 flex flex-col items-start justify-start h-full w-full">
@@ -70,8 +83,8 @@ const Accommodation = () => {
 
                 <div className="w-full mt-8">
                     <h2 className="text-[#D68C45] text-2xl mb-4">Campus Location</h2>
-                    <div 
-                        ref={mapRef} 
+                    <div
+                        ref={mapRef}
                         className="w-full h-[50vh] rounded-lg overflow-hidden shadow-lg"
                         style={{ minHeight: "30vh" }} // Ensuring height is set properly
                     ></div>
