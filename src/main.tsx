@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import { Suspense } from 'react';
 import './index.css'
-import { Accomodation, ContactUs, Events, GuestLectures, Landing, Workshops } from './pages';
-import { Loader, Navbar } from './components';
+import { Landing } from './pages';
+import { Loader } from './components';
 
 
 createRoot(document.getElementById('root')!).render(

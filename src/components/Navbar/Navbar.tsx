@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import useWindowDimensions from "../../utils/dimensionsContext";
 import Lenis from "@studio-freight/lenis/types";
@@ -10,7 +10,6 @@ const getNavItems = () => [
     { id: 3, name: "Workshops", url: "/#workshops" }, // Changed to hash link
     { id: 4, name: "Guest Lectures", url: "/#guest-lectures" }, // Changed to hash link
     { id: 5, name: "Accommodation", url: "/#accommodation" }, // Changed to hash link
-    { id: 6, name: "Contact Us", url: "/contact" }, // Keep as page link if it's a separate page
 ];
 
 const Header = ({ lenis }: { lenis: Lenis | null }) => {
@@ -77,7 +76,7 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
             <div className="left-0 justify-start ml-5 flex flex-[0.2] items-center">
                 <img alt="logo" src="/logo.png" className="size-20 aspect-auto" />
             </div>
-            <nav className="flex items-center flex-[0.8] right-0 gap-3 mr-8 justify-around">
+            <nav className="flex items-center flex-[0.6] right-0 gap-3 mr-8 justify-around">
                 {navItems.map((item) => (
                     <button
                         type="button"

@@ -8,21 +8,9 @@ const ImageCarousel = () => {
     const [isPaused, setIsPaused] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
 
     const autoPlayRef = useRef<number | null>(null);
     const carouselRef = useRef(null);
-
-    // Check for mobile device
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     const getVisibleImages = useCallback(() => {
         const total = imageCarouselData.length;
