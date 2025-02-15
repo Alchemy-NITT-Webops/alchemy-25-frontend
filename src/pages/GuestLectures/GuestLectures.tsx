@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import gldata from '../../data/gl.json';
+import {gldata} from '../../data/gl';
 
 const GuestLectures = () => {
     return (
@@ -30,7 +30,7 @@ const GuestLectures = () => {
             {/* Cards Container */}
             <div className="max-w-[1920px] mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center grid-auto-rows-auto">
-                    {gldata.gldata.map((gl, i) => (
+                    {gldata.map((gl, i) => (
                         <Card key={i} gl={gl} index={i} />
                     ))}
                 </div>

@@ -97,12 +97,12 @@ const Home = () => {
 
     return (
         <>
-            <div className="snap-mandatory w-screen bg-[#1C1C1C]">
-                <div className="h-screen w-screen">
+            <div className="snap-mandatory w-full bg-[#1C1C1C]">
+                <div className="h-screen w-full">
                     <Hero />
                 </div>
                 {isMobile ? (
-                    <div className="min-h-screen w-screen">
+                    <div className="min-h-screen w-full">
                         <AboutUs />
                     </div>
                 ) : (
@@ -112,7 +112,7 @@ const Home = () => {
                             className="h-full relative"
                         >
                             {/* "Who are we?" Section */}
-                            <div className="h-screen w-screen flex items-center justify-center bg-[#1C1C1C] absolute">
+                            <div className="h-screen w-full flex items-center justify-center bg-[#1C1C1C] absolute">
                                 <div
                                     ref={whoAreWeRef}
                                     className="lg:text-9xl floater font-extrabold opacity-80 flex items-center gap-6 font-Azora"
@@ -125,7 +125,7 @@ const Home = () => {
                             </div>
                             <div
                                 ref={aboutUsRef}
-                                className="h-screen w-screen absolute top-0 left-0"
+                                className="h-screen w-full absolute top-0 left-0"
                             >
                                 <AboutUs />
                             </div>
@@ -133,7 +133,7 @@ const Home = () => {
                     </div>
                 )}
 
-                <div className="h-screen w-screen md:mt-10">
+                <div className="h-screen w-full md:mt-10">
                     <ImageCarousel />
                 </div>
                 <div className='md:mt-10'>
@@ -145,7 +145,7 @@ const Home = () => {
                 <div className='md:mt-10'>
                     <Workshops />
                 </div>
-                <div className="md:mt-10 min-h-screen flex justify-center items-center h-full w-screen">
+                <div className="md:mt-10 min-h-screen flex justify-center items-center h-full w-full">
                     <FAQ />
                 </div>
                 <Footer />

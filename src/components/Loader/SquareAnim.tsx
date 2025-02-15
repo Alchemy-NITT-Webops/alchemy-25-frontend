@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 function SquareAnim() {
     return (
         <motion.div
-            className='size-24 absolute bg-blue-500 '
+            className='size-24 absolute bg-[#EC9E52] '
             style={{
                 margin: 0,
                 padding: 0,
@@ -27,7 +27,6 @@ function SquareAnim() {
             }}
         />
     )
-
 }
 
 

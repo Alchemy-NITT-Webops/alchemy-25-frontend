@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import images from "../../data/imageCarousel.json";
+import {imageCarouselData} from "../../data/imageCarousel";
 import AnimatedTextCharacter from "../AnimatedTextCharacter";
 
 const ImageCarousel = () => {
@@ -25,25 +25,25 @@ const ImageCarousel = () => {
     }, []);
 
     const getVisibleImages = useCallback(() => {
-        const total = images.imageCarouselData.length;
+        const total = imageCarouselData.length;
         const currentIndex = selectedItem - 1;
         const prevIndex = (currentIndex - 1 + total) % total;
         const nextIndex = (currentIndex + 1) % total;
 
         if (isMobile) {
-            return [images.imageCarouselData[currentIndex]];
+            return [imageCarouselData[currentIndex]];
         }
 
         return [
-            images.imageCarouselData[prevIndex],
-            images.imageCarouselData[currentIndex],
-            images.imageCarouselData[nextIndex],
+            imageCarouselData[prevIndex],
+            imageCarouselData[currentIndex],
+            imageCarouselData[nextIndex],
         ];
     }, [selectedItem, isMobile]);
 
     const getCardStyle = useCallback((imageId: number) => {
         const visibleImages = getVisibleImages();
-        const image = images.imageCarouselData.find((img) => img.id === imageId);
+        const image = imageCarouselData.find((img) => img.id === imageId);
         if (!image || !visibleImages.includes(image)) return "hidden";
 
         if (isMobile) {
@@ -60,14 +60,14 @@ const ImageCarousel = () => {
     const handleNext = useCallback(() => {
         if (isAnimating) return;
         setIsAnimating(true);
-        setSelectedItem((current) => (current === images.imageCarouselData.length ? 1 : current + 1));
+        setSelectedItem((current) => (current === imageCarouselData.length ? 1 : current + 1));
         setTimeout(() => setIsAnimating(false), 700);
     }, [isAnimating]);
 
     const handlePrev = useCallback(() => {
         if (isAnimating) return;
         setIsAnimating(true);
-        setSelectedItem((current) => (current === 1 ? images.imageCarouselData.length : current - 1));
+        setSelectedItem((current) => (current === 1 ? imageCarouselData.length : current - 1));
         setTimeout(() => setIsAnimating(false), 700);
     }, [isAnimating]);
 
@@ -118,7 +118,7 @@ const ImageCarousel = () => {
                 onTouchEnd={handleGestureEnd}
             >
 
-                {images.imageCarouselData.map((image) => (
+                {imageCarouselData.map((image) => (
                     <div
                         key={image.id}
                         className={`absolute w-full md:w-[80vw] h-full  mx-auto ${getCardStyle(image.id)}`}

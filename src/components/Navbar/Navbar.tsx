@@ -174,7 +174,7 @@ const MobileNav = () => {
                     <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />
                 </div>
                 <motion.div
-                    className="z-50 fixed top-0 left-0 bg-[#1C1C1C] flex flex-col h-screen w-screen"
+                    className="z-50 fixed top-0 left-0 bg-[#1C1C1C] flex flex-col h-screen w-full"
                     variants={{
                         open: {
                             clipPath: `circle(${height * 2}px at 40px 40px)`,
