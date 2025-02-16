@@ -93,13 +93,13 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
             initial={false}
             animate={visible || mouseAtTop ? "visible" : "hidden"}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="select-none z-50 fixed top-0 w-full h-28 shadow-sm border justify-between lg:flex hidden"
+            className="select-none z-50 fixed top-0 w-full h-28 shadow-sm border justify-between flex"
             style={{ borderRadius: "0px 0px 5px 5px" }}
         >
             <div className="left-0 justify-start ml-5 flex flex-[0.2] items-center">
                 <img alt="logo" src="/logo.png" className="size-20 aspect-auto" />
             </div>
-            <nav className="flex items-center flex-[0.6] right-0 gap-3 mr-8 justify-around">
+            <nav className="flex items-center flex-[0.85] right-0 gap-3 mr-8 justify-around">
                 {navItems.map((item) => (
                     <button
                         type="button"
@@ -213,13 +213,13 @@ const MobileNav = ({ lenis }: { lenis: Lenis | null }) => {
     }, [isOpen]);
 
     return (
-        <div className="lg:hidden w-full fixed z-[200000] backdrop-blur-sm flex justify-between items-center ">
+        <div className=" w-full fixed z-[200000] backdrop-blur-sm flex justify-between items-center ">
             <motion.div
                 animate={isOpen ? "open" : "closed"}
                 initial="closed"
             >
                 <div
-                    className="z-[300] lg:hidden fixed top-0 left-0 m-5 flex justify-center items-center cursor-pointer"
+                    className="z-[300] fixed top-0 left-0 m-5 flex justify-center items-center cursor-pointer"
                     onClick={() => toggleIsOpen(!isOpen)}
                 >
                     <MenuToggle toggle={() => toggleIsOpen(!isOpen)} />

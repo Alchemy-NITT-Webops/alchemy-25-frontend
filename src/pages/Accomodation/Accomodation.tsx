@@ -64,7 +64,7 @@ const Accommodation = () => {
                 <div className='w-full' />
             </div>
 
-            <div className="text-white font-sans gap-5 overflow-hidden p-5 sm:p-10 flex flex-col items-start justify-start h-full w-full">
+            <div className="text-white md:text-xl font-sans gap-5 overflow-hidden px-5 sm:p-10 flex flex-col items-start justify-start h-full w-full">
                 <div>
                     Alchemy '25 is happy to provide accommodation for all the participants and ensure a comfortable experience throughout the duration. Register to avail the accommodation.
                 </div>

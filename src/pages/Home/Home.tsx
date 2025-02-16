@@ -17,7 +17,7 @@ const Home = () => {
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
+            setIsMobile(window.innerWidth <= 1200);
         };
         checkMobile();
         window.addEventListener('resize', checkMobile);
