@@ -8,9 +8,9 @@ const getNavItems = () => [
     { id: 1, name: "Home", url: "/#hero" }, 
     { id: 2, name: "About Us", url: "/#about-us" },
     { id: 3, name: "Events", url: "/#events" },
-    { id: 4, name: "Workshops", url: "/#workshops" },
-    { id: 5, name: "Accommodation", url: "/#accommodation" },
-    { id: 6, name: "Guest Lectures", url: "/#guest-lectures" },
+    { id: 4, name: "Guest Lectures", url: "/#guest-lectures" },
+    { id: 5, name: "Workshops", url: "/#workshops" },
+    { id: 6, name: "Accommodation", url: "/#accommodation" },
     { id: 7, name: "FAQ", url: "/#faq" },
 ];
 
