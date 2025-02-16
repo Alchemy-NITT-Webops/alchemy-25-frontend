@@ -6,7 +6,7 @@ import AnimatedTextCharacter from '../../components/AnimatedTextCharacter';
 const Accommodation = () => {
     const mapRef = useRef(null);
     const mapInstanceRef = useRef<L.Map | null>(null);
-    const campusLocation = { lat: 10.76344, lng: 78.81543 };
+    const campusLocation = { lat: 10.758903723124341, lng: 78.81182629999998 };
 
     useEffect(() => {
         // Cleanup previous map instance before re-creating
@@ -39,7 +39,7 @@ const Accommodation = () => {
 
             L.marker([campusLocation.lat, campusLocation.lng], { icon: customIcon })
                 .addTo(mapInstanceRef.current)
-                .bindPopup('📍 NIT Trichy')
+                .bindPopup('📍Chemical Engineering Department, NIT Trichy')
                 .openPopup();
 
 

@@ -5,18 +5,17 @@ import Lenis from "@studio-freight/lenis/types";
 
 
 const getNavItems = () => [
-    { id: 1, name: "Home", url: "/#hero" }, // Changed to hash link for Home section (assuming you have a hero section with id="hero")
-    { id: 2, name: "About Us", url: "/#about-us" }, // Changed to hash link
-    { id: 3, name: "Events", url: "/#events" }, // Changed to hash link
-    { id: 4, name: "Workshops", url: "/#workshops" }, // Changed to hash link
-    { id: 5, name: "Guest Lectures", url: "/#guest-lectures" }, // Changed to hash link
-    { id: 6, name: "Accommodation", url: "/#accommodation" }, // Changed to hash link
-    { id: 7, name: "FAQ", url: "/#faq" }, // Changed to hash link
+    { id: 1, name: "Home", url: "/#hero" }, 
+    { id: 2, name: "About Us", url: "/#about-us" },
+    { id: 3, name: "Events", url: "/#events" },
+    { id: 4, name: "Workshops", url: "/#workshops" },
+    { id: 5, name: "Accommodation", url: "/#accommodation" },
+    { id: 6, name: "Guest Lectures", url: "/#guest-lectures" },
+    { id: 7, name: "FAQ", url: "/#faq" },
 ];
 
 const Header = ({ lenis }: { lenis: Lenis | null }) => {
     const navItems = getNavItems();
-    // const navigate = useNavigate(); // No need for useNavigate for in-page scrolling
     const { scrollY } = useScroll();
 
     const [active, setActive] = useState(1);
