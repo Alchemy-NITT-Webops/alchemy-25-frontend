@@ -18,7 +18,7 @@ const Footer = () => {
 
     return (
         <>
-            <div className="w-full flex-col flex justify-around bg-gradient-to-b p-5 select-none from-[#EC9E52] to-[#462200] rounded-[50px] border-8 border-[#1C1C1C] h-fit ">
+            <div className="w-full flex-col flex justify-around bg-gradient-to-b p-5 select-none mt-10 from-[#EC9E52] to-[#462200] rounded-[50px] border-8 border-[#1C1C1C] h-fit ">
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between">
                     <img
                         src={alchemy}
@@ -31,6 +31,10 @@ const Footer = () => {
                                 <span className="font-Lato text-white px-5">{contact.name}: <a href={`tel:${contact.number}`}>+91 {contact.number}</a></span>
                             </div>
                         ))}
+                        <div className="flex flex-col ">
+                            <span className=" mt-5 font-Azora text-white/80 text-2xl px-5">email</span>
+                            <span className="font-Lato text-white px-5"><a href="mailto:Alchemy25.nitt@gmail.com">Alchemy25.nitt@gmail.com</a></span>
+                        </div>
                     </div>
                     <div className="flex flex-col my-5 gap-5">
                         <p className="font-Azora text-white text-2xl px-5">follow us on</p>

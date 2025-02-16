@@ -90,7 +90,7 @@ const EventCarousel = ({ eventsData }: EventsData) => {
 
                 <div
                     ref={containerRef}
-                    className="flex gap-4 md:gap-6 overflow-x-hidden px-4 md:px-8 no-scrollbar scroll-smooth py-4 touch-pan-x"
+                    className="flex gap-4 md:gap-6 overflow-x-hidden px-4 md:px-8 no-scrollbar scroll-smooth py-4"
                 >
                     {eventsData.map((event) => (
                         <div

@@ -93,9 +93,9 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col w-full md:w-3/5 items-center justify-center gap-3 mt-20 md:mt-0'>
+            <div className='flex backdrop-blur z-50 flex-col w-full md:w-3/5 items-center justify-center gap-3 mt-20 md:mt-0'>
                 <div className='flex items-center justify-center gap-2 sm:gap-5'>
-                    <div className='text-4xl xs:text-9xl sm:text-5xl md:text-6xl lg:text-8xl font-bold'>
+                    <div className='text-5xl md:text-8xl font-bold'>
                         <AnimatedTextCharacter text={"ALCHEMY '25"} />
                     </div>
                 </div>

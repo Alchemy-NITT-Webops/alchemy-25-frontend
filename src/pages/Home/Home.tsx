@@ -107,7 +107,7 @@ const Home = () => {
                     <Hero />
                 </div>
                 {isMobile ? (
-                    <div id="about-us" className="min-h-screen w-full"> 
+                    <div id="about-us" className="min-h-screen mt-20 w-full"> 
                         <AboutUs />
                     </div>
                 ) : (
@@ -139,7 +139,7 @@ const Home = () => {
                     </div>
                 )}
 
-                <div id="image-carousel" className="h-screen w-full md:mt-10"> 
+                <div id="image-carousel" className=" w-full md:mt-10"> 
                     <ImageCarousel />
                 </div>
                 <div id="events" className='md:mt-10'> 
@@ -151,10 +151,10 @@ const Home = () => {
                 <div id="workshops" className='md:mt-10'> 
                     <Workshops />
                 </div>
-                <div id="accommodation" className='md:mt-10' > 
+                <div id="accommodation" className='md:mt-40' > 
                     <Accomodation />
                 </div>
-                <div id="faq" className="min-h-screen flex justify-center items-center h-full w-full"> 
+                <div id="faq" className="min-h-screen flex mt-32 justify-center items-center w-full"> 
                     <FAQ />
                 </div>
                 <Footer />

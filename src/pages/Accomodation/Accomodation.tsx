@@ -78,7 +78,7 @@ const Accommodation = () => {
 
                 <div className="text-[#D68C45]">
                     Caution Deposit:
-                    <span className="text-white ml-2">₹ 100</span>
+                    <span className="text-white ml-2">₹ 150</span>
                 </div>
 
                 <div className="w-full mt-8">

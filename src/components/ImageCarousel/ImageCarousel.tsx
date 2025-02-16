@@ -112,7 +112,7 @@ const ImageCarousel = () => {
                         <img
                             src={image.image}
                             alt={image.title}
-                            className="w-full h-full flex-1 rounded-lg object-contain shadow-lg"
+                            className="w-full h-full flex-1 rounded-lg object-contain shadow-lg "
                             draggable="false"
                         />
                     </div>

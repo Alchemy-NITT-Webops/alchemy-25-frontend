@@ -6,10 +6,12 @@ import Lenis from "@studio-freight/lenis/types";
 
 const getNavItems = () => [
     { id: 1, name: "Home", url: "/#hero" }, // Changed to hash link for Home section (assuming you have a hero section with id="hero")
-    { id: 2, name: "Events", url: "/#events" }, // Changed to hash link
-    { id: 3, name: "Workshops", url: "/#workshops" }, // Changed to hash link
-    { id: 4, name: "Guest Lectures", url: "/#guest-lectures" }, // Changed to hash link
-    { id: 5, name: "Accommodation", url: "/#accommodation" }, // Changed to hash link
+    { id: 2, name: "About Us", url: "/#about-us" }, // Changed to hash link
+    { id: 3, name: "Events", url: "/#events" }, // Changed to hash link
+    { id: 4, name: "Workshops", url: "/#workshops" }, // Changed to hash link
+    { id: 5, name: "Guest Lectures", url: "/#guest-lectures" }, // Changed to hash link
+    { id: 6, name: "Accommodation", url: "/#accommodation" }, // Changed to hash link
+    { id: 7, name: "FAQ", url: "/#faq" }, // Changed to hash link
 ];
 
 const Header = ({ lenis }: { lenis: Lenis | null }) => {
@@ -42,7 +44,6 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
     });
 
     const handleClick = (url: string) => {
-        
         if (url.startsWith('/#')) {
             const targetId = url.substring(2);
             const targetElement = document.getElementById(targetId);
@@ -55,6 +56,28 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
             setActive(navItems.find((item) => item.url === url)?.id || 1);
         }
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            navItems.forEach((item) => {
+                const targetId = item.url.substring(2);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const rect = targetElement.getBoundingClientRect();
+                    if (rect.top <= 200 && rect.bottom >= 200) {
+                        setActive(item.id);
+                    }
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [navItems]);
+
+
 
 
     return (
@@ -190,7 +213,7 @@ const MobileNav = ({ lenis }: { lenis: Lenis | null }) => {
     }, [isOpen]);
 
     return (
-        <div className="lg:hidden w-full fixed z-50 backdrop-blur-sm flex justify-between items-center border-b-[#1C1C1C] border-b-[1.5px]">
+        <div className="lg:hidden w-full fixed z-[200000] backdrop-blur-sm flex justify-between items-center ">
             <motion.div
                 animate={isOpen ? "open" : "closed"}
                 initial="closed"
