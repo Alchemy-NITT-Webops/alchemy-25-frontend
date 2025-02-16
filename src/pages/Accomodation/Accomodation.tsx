@@ -81,6 +81,17 @@ const Accommodation = () => {
                     <span className="text-white ml-2">₹ 150</span>
                 </div>
 
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSeh7-iYuGpLGO7NPAQmJfCQ4XQqyuwhmQJ_WFthjS0x2d1dJw/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center mt-8 px-8 py-4 rounded-lg bg-[#D68C45] text-white font-medium text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                >
+                    <span className="relative z-10">Register Now</span>
+
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-25 group-hover:opacity-40 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                </a>
+                
                 <div className="w-full mt-8">
                     <h2 className="text-[#D68C45] text-2xl mb-4">Campus Location</h2>
                     <div
