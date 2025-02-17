@@ -17,7 +17,7 @@ export const events: Event[] = [
         title: "Alchemy Arena",
         image: event_1,
         dateTime: "1 March 2025",
-        registerLink: "https://qr.me-qr.com/BsqeBwL9"
+        registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSfPcPd1nnXWSAZqH_Fgb5uU2zOWa5n5gF1PzB0OrOyONeRDlg/viewform"
     },
     {
         id: 2,
