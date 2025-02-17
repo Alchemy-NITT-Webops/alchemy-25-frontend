@@ -68,7 +68,7 @@ const Card = ({ gl, index }: { gl: GLPerson; index: number }) => {
                 boxShadow: '0 0 15px rgba(212, 175, 55, 0.3)'
             }}>
                 {/* Image Container */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+                <div className="relative  overflow-hidden rounded-t-lg">
                     <img
                         src={gl.image}
                         alt={gl.name}
@@ -85,7 +85,7 @@ const Card = ({ gl, index }: { gl: GLPerson; index: number }) => {
                     <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-2"></div>
                     <p className="text-[#D4AF37] font-medium mb-1 text-sm">{gl.designation}</p>
                     <p className="text-[#D4AF37] text-sm">{gl.address}</p>
-                    <span className='text-white/50 mt-2 text-xs'>on the topic
+                    <span className={`${gl.topic == "" && "hidden"} text-white/50 mt-2 text-xs`}>on the topic
                     </span>
                     <p className="text-[#D4AF37] text-lg">{gl.topic}</p>
                 </div>

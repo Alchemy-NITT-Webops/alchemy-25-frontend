@@ -27,7 +27,7 @@ const Footer = () => {
                     <div className="flex flex-col ">
                         <p className="font-Azora text-white text-2xl px-5">contact us</p>
                         {contactDetails.map((contact, index) => (
-                            <div className="flex flex-col " key={index}>
+                            <div className="flex flex-col select-text" key={index}>
                                 <span className="font-Lato text-white px-5">{contact.name}: <a href={`tel:${contact.number}`}>+91 {contact.number}</a></span>
                             </div>
                         ))}

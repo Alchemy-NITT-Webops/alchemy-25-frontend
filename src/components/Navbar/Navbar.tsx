@@ -49,10 +49,8 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
             if (targetElement) {
                 lenis?.scrollTo(targetElement);
             }
-            setActive(navItems.find((item) => item.url === url)?.id || 1);
         } else {
             window.location.href = url;
-            setActive(navItems.find((item) => item.url === url)?.id || 1);
         }
     };
 
