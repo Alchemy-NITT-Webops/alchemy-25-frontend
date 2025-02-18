@@ -29,7 +29,7 @@ export const gldata: GLPerson[] = [
     {
         image: gl_2,
         name: "Swathi Srinivasan",
-        topic: "",
+        topic: "Molecules to Models: Shaping the future through digital technology.",
         designation: "Asst. Research Scientist",
         address: "Unilever"
     },
