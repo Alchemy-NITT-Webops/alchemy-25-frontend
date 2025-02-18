@@ -94,7 +94,7 @@ const Header = ({ lenis }: { lenis: Lenis | null }) => {
             style={{ borderRadius: "0px 0px 5px 5px" }}
         >
             <div className="left-0 justify-start ml-5 flex flex-[0.2] items-center">
-                <img alt="logo" src="/logo.png" className="size-20 aspect-auto" />
+                <img alt="logo" src="/logo.png" className=" aspect-auto" />
             </div>
             <nav className="flex items-center flex-[0.85] right-0 gap-3 mr-8 justify-around">
                 {navItems.map((item) => (

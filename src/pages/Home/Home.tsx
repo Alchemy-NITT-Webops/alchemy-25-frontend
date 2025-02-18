@@ -13,7 +13,7 @@ const Home = () => {
     const aboutUsRef = useRef<HTMLDivElement | null>(null);
     const scrollSectionRef = useRef<HTMLDivElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         const checkMobile = () => {

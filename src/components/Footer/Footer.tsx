@@ -66,7 +66,7 @@ const Footer = () => {
 
 
                 <p className="text-xl mt-5 text-center font-bold text-white font-Azora ">
-                    Made With ♥️ by Design and <a href="https://github.com/orgs/Alchemy-NITT-Webops/people" target="blank" className="hover:invert transition-all duration-1000 hover:cursor-pointer">  Webops team</a>
+                    Made With ♥️ by <a href="https://www.instagram.com/_siva.004?igsh=MW1vM3kyb3NqZTg2dg%3D%3D&utm_source=qr" target="blank" className="hover:invert transition-all duration-1000 hover:cursor-pointer">Design</a> and <a href="https://github.com/orgs/Alchemy-NITT-Webops/people" target="blank" className="hover:invert transition-all duration-1000 hover:cursor-pointer">  Webops team</a>
                 </p>
 
             </div>
